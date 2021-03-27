@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\ProductModel;
 
 class ProductController extends Controller
 {
@@ -14,7 +15,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+         $list_products = ProductModel::all();
+        return view('admin.products.products', compact('list_products'));
     }
 
     /**
@@ -35,7 +37,22 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ProductModel::updateOrCreate(
+              [
+                'id' => $request->id
+              ],
+              [
+                'name' => $request->name,
+                'code' => $request->code
+              ]
+            );
+
+            return response()->json(
+              [
+                'success' => true,
+                'message' => 'Data inserted successfully'
+              ]
+            );
     }
 
     /**

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +50,16 @@ Route::post('/add-permission', [PermissionController::class, 'store'])->name('ad
 Route::get('/edit-permission/{id}', [PermissionController::class, 'edit'])->name('edit.permission');
 Route::post('/edit-permission/{id}', [PermissionController::class, 'update'])->name('update.permission.post');
 Route::get('/delete-permission/{id}', [PermissionController::class, 'destroy'])->name('delete.permission');
+
+
+// Product
+Route::get('/list-products', [ProductController::class, 'index'])->name('list.products');
+Route::get('/add-product', [ProductController::class, 'create'])->name('add.product');
+Route::post('/add-product', [ProductController::class, 'store'])->name('add.product.post');
+Route::get('/edit-product/{id}', [ProductController::class, 'edit'])->name('edit.product');
+Route::post('/edit-product/{id}', [ProductController::class, 'update'])->name('update.product.post');
+Route::get('/delete-product/{id}', [ProductController::class, 'destroy'])->name('delete.product');
+
 
 
 

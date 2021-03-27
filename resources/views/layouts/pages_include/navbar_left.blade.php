@@ -3,12 +3,12 @@
     <div class="pcoded-inner-navbar main-menu">
         <div class="pcoded-navigatio-lavel">Navigation</div>
         <ul class="pcoded-item pcoded-left-item">
-            <li class="pcoded-hasmenu active pcoded-trigger">
+            <li class="pcoded-hasmenu pcoded-trigger">
                 <a href="javascript:void(0)">
                     <span class="pcoded-micon"><i class="feather icon-home"></i></span>
                     <span class="pcoded-mtext">Dashboard</span>
                 </a>
-                <ul class="pcoded-submenu">
+               <!--  <ul class="pcoded-submenu">
                     <li class="active">
                         <a href="index-1.htm">
                             <span class="pcoded-mtext">Default</span>
@@ -25,7 +25,7 @@
                             <span class="pcoded-badge label label-info ">NEW</span>
                         </a>
                     </li>
-                </ul>
+                </ul> -->
             </li>
             <li class="pcoded-hasmenu">
                 <a href="javascript:void(0)">
@@ -107,9 +107,9 @@
                 </ul>
             </li>
             <li class="">
-                <a href="navbar-light.htm">
+                <a href="{{ route('list.products') }}">
                     <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
-                    <span class="pcoded-mtext">Navigation</span>
+                    <span class="pcoded-mtext">Manager Products</span>
                 </a>
             </li>
             <li class="pcoded-hasmenu">

@@ -17,12 +17,17 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
     <!-- Required Fremwork -->
     <link rel="stylesheet" type="text/css" href="{{ asset('..\files\bower_components\bootstrap\css\bootstrap.min.css') }}">
-    <!-- feather Awesome -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('..\files\assets\icon\feather\css\feather.css') }}">
+   
     <!-- Data Table Css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('..\files\bower_components\datatables.net-bs4\css\dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('..\files\assets\pages\data-table\css\buttons.dataTables.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('..\files\bower_components\datatables.net-responsive-bs4\css\responsive.bootstrap4.min.css') }}">
+
+    <!-- jquery file upload Frame work -->
+    <link href="{{ asset('..\files\assets\pages\jquery.filer\css\jquery.filer.css')}}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('..\files\assets\pages\jquery.filer\css\themes\jquery.filer-dragdropbox-theme.css')}}" type="text/css" rel="stylesheet">
+    <!-- animation nifty modal window effects css -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('..\files\assets\css\component.css')}}">
     <!-- Select 2 css -->
     <link rel="stylesheet" href="{{ asset('..\files\bower_components\select2\css\select2.min.css')}}">
     <!-- Multi Select css -->
@@ -31,6 +36,12 @@
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('..\files\assets\css\style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('..\files\assets\css\jquery.mCustomScrollbar.css') }}">
+    <!-- themify-icons line icon -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('..\files\assets\icon\themify-icons\themify-icons.css')}}">
+    <!-- ico font -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('..\files\assets\icon\icofont\css\icofont.css')}}">
+    <!-- feather Awesome -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('..\files\assets\icon\feather\css\feather.css')}}">
 </head>
 
 <body>
@@ -155,6 +166,14 @@
     <!-- <script type="text/javascript" src="{{ asset('..\files\assets\pages\dashboard\custom-dashboard.js') }}"></script> -->
     <script type="text/javascript" src="{{ asset('..\files\assets\js\script.min.js') }}"></script>
 
+    <!-- jquery file upload js -->
+    <script src="{{ asset('..\files\assets\pages\jquery.filer\js\jquery.filer.min.js')}}"></script>
+    <script src="{{ asset('..\files\assets\pages\filer\custom-filer.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('..\files\assets\pages\filer\jquery.fileuploads.init.js')}}" type="text/javascript"></script>
+    <!-- Model animation js -->
+    <script src="{{ asset('..\files\assets\js\classie.js')}}"></script>
+    <script src="{{ asset('..\files\assets\js\modalEffects.js')}}"></script>
+
     <!-- Select 2 js -->
     <script type="text/javascript" src="{{ asset('..\files\bower_components\select2\js\select2.full.min.js')}}"></script>
     <!-- Multiselect js -->
@@ -165,6 +184,8 @@
 
     <!-- Custom js -->
     <script type="text/javascript" src="{{ asset('..\files\assets\pages\advance-elements\select2-custom.js')}}"></script>
+
+    <script type="text/javascript" src="{{ asset('..\files\assets\js\script.js')}}"></script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
