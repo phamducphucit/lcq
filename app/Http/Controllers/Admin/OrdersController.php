@@ -15,6 +15,7 @@ class OrdersController extends Controller
     public function index()
     {
         //
+
     }
 
     /**
@@ -25,6 +26,7 @@ class OrdersController extends Controller
     public function create()
     {
         //
+        
     }
 
     /**
