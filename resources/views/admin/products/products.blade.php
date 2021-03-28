@@ -38,8 +38,8 @@
         					 <h4>List Products </h4>
         				</div>
         				<div class="col-sm-6">
-        					<button type="button" class="btn btn-primary waves-effect waves-light f-right d-inline-block md-trigger" data-modal="modal-13"> <i class="icofont icofont-plus m-r-5"></i> Add Product
-                            </button>
+        					<h5 style="float: right;"><a href="{{ route('add.product') }}" class="btn btn-primary">Add New Product</a></h5>
+
         				</div>
         			</div>		            
 		        </div>
@@ -64,7 +64,9 @@
 		                    	@foreach($list_products as $product)
 		                        <tr>
 		                        	<td>{{ $product->id }}</td>
-		                            <td>{{ $product->image }}</td>
+		                            <td>
+		                            	<img src="/{{ $product->image }}" style="width: 50px; height: 50px;">
+		                            </td>
 		                            <td>{{ $product->name }}</td>
 		                            <td>{{ $product->category_id }}</td>
 		                            <td>{{ $product->code }}</td>
@@ -82,8 +84,8 @@
 						                   </span>
 		                            </td> -->
 		                            <td class="action-icon">
-                                        <a href="#!" class="m-r-15 text-muted" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="icofont icofont-ui-edit"></i></a>
-                                        <a href="#!" class="text-muted" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="icofont icofont-delete-alt"></i></a>
+                                        <a href="{{ route('edit.product',$product->id)}}" class="m-r-15 text-muted" data-placement="top" title="" data-original-title="Edit"><i class="icofont icofont-ui-edit"></i></a>
+                                        <a href="#!" onclick="deleteProduct({{ $product->id }})" class="text-muted" data-placement="top" title="" data-original-title="Delete"><i class="icofont icofont-delete-alt"></i></a>
                                     </td>
 		                        </tr>
 		                        @endforeach
@@ -106,7 +108,7 @@
 
 
 		    <!-- Add Contact Start Model start-->
-            <div class="md-modal md-effect-13 addcontact" id="modal-13">
+            <!-- <div class="md-modal md-effect-13 addcontact" id="modal_create_product">
                 <div class="md-content">
                     <h3 class="f-26">Add Product</h3>
                     <div>
@@ -119,7 +121,7 @@
                             <input type="text" name="name" id="name" class="form-control pname" placeholder="Product Name">
                         </div>
                         <div class="input-group">
-                            <select id="hello-single" class="form-control stock">
+                            <select class="form-control stock" name="category_id" id="category_id">
                                 <option value="">---- Select Category ----</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -144,7 +146,7 @@
                             <input type="text" name="quantity" id="quantity" class="form-control pamount" placeholder="Enter Quantity">
                         </div>
                          <div class="input-group">
-                            <select id="hello-single" class="form-control stock">
+                            <select class="form-control stock" name="unit" id="unit">
                                 <option value="">---- Select Unit ----</option>
                                 <option value="1">Kg</option>
                                 <option value="2">Box</option>
@@ -158,7 +160,7 @@
                     </div>
                 </div>
             </div>
-            <div class="md-overlay"></div>
+            <div class="md-overlay"></div> -->
             <!-- Add Contact Ends Model end-->
         </div>
     </div>
@@ -172,50 +174,10 @@
 @endpush  -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.29.2/sweetalert2.all.js"></script>
-
-<script type="text/javascript">
-//Save data into database
-$('body').on('click', '#submit', function (event) {
-    event.preventDefault()
-    var name = $("#name").val();
-    var code = $("#code").val();
-    // var address = $("#address").val();
-   
-    $.ajax({
-      url: store,
-      type: "POST",
-      data: {
-        name: name,
-        code: code
-      },
-      dataType: 'json',
-      success: function (data) {
-          
-          $('#companydata').trigger("reset");
-          $('#modal-id').modal('hide');
-          Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Success',
-            showConfirmButton: false,
-            timer: 1500
-          })
-      },
-      error: function (data) {
-          console.log('Error......');
-      }
-  });
-});
-</script>
-
-
-
-
-
 <script>
    function deleteProduct(id){
          Swal.fire({
-       title: 'Are you sure?',
+       title: 'Are you sure you want to delete the product?',
        text: "You won't be able to revert this!",
        icon: 'warning',
        type: 'warning',
@@ -229,7 +191,7 @@ $('body').on('click', '#submit', function (event) {
        if (result.value) {
             $.ajax({
                 type: "GET",
-                url: "{{url('/delete-Product/')}}/"+id,
+                url: "{{url('/product/delete-product/')}}/"+id,
                 success: function (data) {
                     }         
             });

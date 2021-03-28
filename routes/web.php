@@ -5,7 +5,9 @@ use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\OrdersController;
+use App\Http\Controllers\Admin\ConfigController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,6 +68,19 @@ Route::group(['middleware'=>'auth'], function (){
 		Route::get('/delete-product/{id}', [ProductController::class, 'destroy'])->name('delete.product');
 	});
 
+	// Product
+	Route::group(['prefix'=>'customer'], function(){
+		Route::get('/list-customers', [CustomerController::class, 'index'])->name('list.customers');
+		Route::get('/add-customer', [CustomerController::class, 'create'])->name('add.customer');
+		Route::post('/add-customer', [CustomerController::class, 'store'])->name('add.customer.post');
+		Route::get('/edit-customer/{id}', [CustomerController::class, 'edit'])->name('edit.customer');
+		Route::post('/edit-customer/{id}', [CustomerController::class, 'update'])->name('update.customer.post');
+		Route::get('/delete-customer/{id}', [CustomerController::class, 'destroy'])->name('delete.customer');
+
+
+		
+	});
+
 	// Orders
 	Route::group(['prefix'=>'order'], function(){
 		Route::get('/list-orders', [OrdersController::class, 'index'])->name('list.orders');
@@ -77,6 +92,11 @@ Route::group(['middleware'=>'auth'], function (){
 	});
 
 });
+
+Route::get('/admin/config/province',[ConfigController::class,'province']);
+ Route::get('/admin/config/district/{id}',[ConfigController::class,'district']);
+ Route::get('/admin/config/ward/{id}',[ConfigController::class,'ward']);
+
 
 // //Employee
 // Route::get('/employees', [EmployeesController::class, 'index'])->name('employees');

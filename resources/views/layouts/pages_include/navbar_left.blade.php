@@ -112,6 +112,12 @@
                     <span class="pcoded-mtext">Manager Products</span>
                 </a>
             </li>
+            <li class="">
+                <a href="{{ route('list.customers') }}">
+                    <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
+                    <span class="pcoded-mtext">Manager Customers</span>
+                </a>
+            </li>
             <li class="pcoded-hasmenu">
                 <a href="javascript:void(0)">
                     <span class="pcoded-micon"><i class="feather icon-layers"></i></span>
