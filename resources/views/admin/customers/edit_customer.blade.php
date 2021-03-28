@@ -89,7 +89,7 @@
                               <select class="form-control select2bs4" style="width: 100%;"  name="province_id" id="province_id">
                                 <option >--- Tỉnh/Thành phố ---</option>
                                     @foreach($provinces as $province)
-                                        <option value="{{$province->id}}"> {{$province->name}} </option>
+                                        <option value="{{$province->id}}" {{ $province->id == $customer->province_id ? 'selected' : '' }} > {{$province->name}} </option>
                                     @endforeach
                               </select>
                             </div>
@@ -105,6 +105,7 @@
                           </div>
                            
 	                    </div>
+                                      
 	                    
 
 	                    <div class="form-group row">
