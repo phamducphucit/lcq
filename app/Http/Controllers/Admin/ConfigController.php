@@ -14,6 +14,10 @@ class ConfigController extends Controller
         return Province::all();
     }
 
+    public function detailProvince(Request $request){
+        return Province::where('id',$request->id)->first();
+    }
+
     public function district(Request $request){
         return District::where('province_id',$request->id)->get();
     }

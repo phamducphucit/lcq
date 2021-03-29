@@ -99,6 +99,7 @@ class CustomerController extends Controller
     public function show($id)
     {
         //
+        return CustomerModel::find($id);
     }
 
     /**

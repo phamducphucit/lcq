@@ -34,6 +34,8 @@
     <!-- Multi Select css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('..\files\bower_components\bootstrap-multiselect\css\bootstrap-multiselect.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('..\files\bower_components\multiselect\css\multi-select.css')}}">
+    <!--forms-wizard css-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('..\files\bower_components\jquery.steps\css\jquery.steps.css') }}">
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('..\files\assets\css\style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('..\files\assets\css\jquery.mCustomScrollbar.css') }}">
@@ -140,6 +142,10 @@
     <script type="text/javascript" src="{{ asset('..\files\bower_components\jquery-slimscroll\js\jquery.slimscroll.js') }}"></script>
     <!-- modernizr js -->
     <script type="text/javascript" src="{{ asset('..\files\bower_components\modernizr\js\modernizr.js') }}"></script>
+    <!--Forms - Wizard js-->
+    <script src="{{ asset('..\files\bower_components\jquery.cookie\js\jquery.cookie.js') }}"></script>
+    <script src="{{ asset('..\files\bower_components\jquery.steps\js\jquery.steps.js') }}"></script>
+    <script src="{{ asset('..\files\bower_components\jquery-validation\js\jquery.validate.js') }}"></script>
     <!-- data-table js -->
     <script src="{{ asset('..\files\bower_components\datatables.net\js\jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('..\files\bower_components\datatables.net-buttons\js\dataTables.buttons.min.js') }}"></script>
@@ -184,6 +190,7 @@
     <script type="text/javascript" src="{{ asset('..\files\assets\js\jquery.quicksearch.js')}}"></script>
 
     <!-- Custom js -->
+    <script src="{{ asset('..\files\assets\pages\forms-wizard-validation\form-wizard.js')}}"></script>
     <script type="text/javascript" src="{{ asset('..\files\assets\pages\advance-elements\select2-custom.js')}}"></script>
 
     <script type="text/javascript" src="{{ asset('..\files\assets\js\script.js')}}"></script>

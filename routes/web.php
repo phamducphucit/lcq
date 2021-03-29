@@ -68,7 +68,7 @@ Route::group(['middleware'=>'auth'], function (){
 		Route::get('/delete-product/{id}', [ProductController::class, 'destroy'])->name('delete.product');
 	});
 
-	// Product
+	// Customer
 	Route::group(['prefix'=>'customer'], function(){
 		Route::get('/list-customers', [CustomerController::class, 'index'])->name('list.customers');
 		Route::get('/add-customer', [CustomerController::class, 'create'])->name('add.customer');
@@ -76,7 +76,7 @@ Route::group(['middleware'=>'auth'], function (){
 		Route::get('/edit-customer/{id}', [CustomerController::class, 'edit'])->name('edit.customer');
 		Route::post('/edit-customer/{id}', [CustomerController::class, 'update'])->name('update.customer.post');
 		Route::get('/delete-customer/{id}', [CustomerController::class, 'destroy'])->name('delete.customer');
-
+		Route::get('/show-customer/{id}', [CustomerController::class, 'show'])->name('show.customer');
 
 		
 	});
@@ -94,9 +94,9 @@ Route::group(['middleware'=>'auth'], function (){
 });
 
 Route::get('/admin/config/province',[ConfigController::class,'province']);
- Route::get('/admin/config/district/{id}',[ConfigController::class,'district']);
- Route::get('/admin/config/ward/{id}',[ConfigController::class,'ward']);
-
+Route::get('/admin/config/district/{id}',[ConfigController::class,'district']);
+Route::get('/admin/config/ward/{id}',[ConfigController::class,'ward']);
+Route::get('/admin/config/province/{id}',[ConfigController::class,'detailProvince']);
 
 // //Employee
 // Route::get('/employees', [EmployeesController::class, 'index'])->name('employees');

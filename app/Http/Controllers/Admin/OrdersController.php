@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\CustomerModel;
+use App\Models\ProductModel;
 
 class OrdersController extends Controller
 {
@@ -26,7 +28,9 @@ class OrdersController extends Controller
     public function create()
     {
         //
-        
+        $list_cus = CustomerModel::all();
+        $list_products = ProductModel::all();
+        return view('admin.orders.add_order', compact('list_cus', 'list_products'));
     }
 
     /**
