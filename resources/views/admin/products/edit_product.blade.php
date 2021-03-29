@@ -58,22 +58,24 @@
                                 @foreach($list_categories as $category)
                                 	<option value="{{ $category->id }}" {{$product->category_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
                                 @endforeach
+                                </select>
+
                             	@if($errors->has('category_id'))
 		                          <span class="messages" style="color: red;">{{$errors->first('category_id')}}</span>
 		                       @endif 
 	                        </div>
 	                    </div>
-	                    <div class="form-group row">
+	                     <div class="form-group row">
 	                        <div class="col-sm-6">
 	                        	<label>Code :</label>
-	                            <input type="text" name="code" id="code" class="form-control pamount {{$errors->has('code') ? 'is-invalid' : '' }}" value="{{ $product->code }}" placeholder="Enter Code">
+	                            <input type="text" name="code" id="code" class="form-control pamount {{$errors->has('code') ? 'is-invalid' : '' }}" value="{{ $category->code }}" placeholder="Enter Code">
 	                            @if($errors->has('code'))
 		                          <span class="messages" style="color: red;">{{$errors->first('code')}}</span>
 		                      	@endif 
 	                        </div>
 	                        <div class="col-sm-6">
 	                        	<label>Description :</label>
-	                        	<input type="text" name="description" id="description" class="form-control pamount {{$errors->has('description') ? 'is-invalid' : '' }}" value="{{ $product->description }}" placeholder="Enter Description">
+	                        	<input type="text" name="description" id="description" class="form-control pamount {{$errors->has('description') ? 'is-invalid' : '' }}" placeholder="Enter Description" value="{{ $category->description }}">
 	                        	@if($errors->has('description'))
 		                          <span class="messages" style="color: red;">{{$errors->first('description')}}</span>
 		                      	@endif 
