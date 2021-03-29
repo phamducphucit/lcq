@@ -55,10 +55,9 @@
 	                        	<label>Category :</label>
 	                            <select class="form-control stock {{$errors->has('category_id') ? 'is-invalid' : '' }}" name="category_id" id="category_id">
                                 <option value="">---- Select Category ----</option>
-                                <option value="1" {{$product->category_id == 1 ? 'selected' : '' }}>1</option>
-                                <option value="2" {{$product->category_id == 2 ? 'selected' : '' }}>2</option>
-                                <option value="3" {{$product->category_id == 3 ? 'selected' : '' }}>3</option>
-                            	</select>
+                                @foreach($list_categories as $category)
+                                	<option value="{{ $category->id }}" {{$product->category_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                                @endforeach
                             	@if($errors->has('category_id'))
 		                          <span class="messages" style="color: red;">{{$errors->first('category_id')}}</span>
 		                       @endif 

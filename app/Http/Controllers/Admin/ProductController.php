@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\ProductModel;
+use App\Models\CategoryModel;
 
 class ProductController extends Controller
 {
@@ -27,7 +28,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-         return view('admin.products.add_product');
+        $list_categories = CategoryModel::all();
+         return view('admin.products.add_product', compact('list_categories'));
     }
 
     /**
@@ -104,7 +106,8 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = ProductModel::find($id);
-       return view('admin.products.edit_product', compact('product'));
+        $list_categories = CategoryModel::all();
+       return view('admin.products.edit_product', compact('product','list_categories'));
     }
 
     /**

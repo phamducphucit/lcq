@@ -107,6 +107,12 @@
                 </ul>
             </li>
             <li class="">
+                <a href="{{ route('list.categories') }}">
+                    <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
+                    <span class="pcoded-mtext">Manager Categories</span>
+                </a>
+            </li>
+            <li class="">
                 <a href="{{ route('list.products') }}">
                     <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
                     <span class="pcoded-mtext">Manager Products</span>

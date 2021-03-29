@@ -68,7 +68,7 @@
 		                            	<img src="/{{ $product->image }}" style="width: 50px; height: 50px;">
 		                            </td>
 		                            <td>{{ $product->name }}</td>
-		                            <td>{{ $product->category_id }}</td>
+		                            <td>{{ $product->category->name }}</td>
 		                            <td>{{ $product->code }}</td>
 		                            <td>{{ $product->description }}</td>
 		                            <td>{{ $product->price }}</td>

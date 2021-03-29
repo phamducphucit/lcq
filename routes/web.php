@@ -8,6 +8,9 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\OrdersController;
 use App\Http\Controllers\Admin\ConfigController;
+use App\Http\Controllers\Admin\CategoryController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +59,16 @@ Route::group(['middleware'=>'auth'], function (){
 		Route::get('/edit-permission/{id}', [PermissionController::class, 'edit'])->name('edit.permission');
 		Route::post('/edit-permission/{id}', [PermissionController::class, 'update'])->name('update.permission.post');
 		Route::get('/delete-permission/{id}', [PermissionController::class, 'destroy'])->name('delete.permission');
+	});
+
+	// Category
+	Route::group(['prefix'=>'category'], function(){
+		Route::get('/list-categories', [CategoryController::class, 'index'])->name('list.categories');
+		Route::get('/add-category', [CategoryController::class, 'create'])->name('add.category');
+		Route::post('/add-category', [CategoryController::class, 'store'])->name('add.category.post');
+		Route::get('/edit-category/{id}', [CategoryController::class, 'edit'])->name('edit.category');
+		Route::post('/edit-category/{id}', [CategoryController::class, 'update'])->name('update.category.post');
+		Route::get('/delete-category/{id}', [CategoryController::class, 'destroy'])->name('delete.category');
 	});
 
 	// Product
