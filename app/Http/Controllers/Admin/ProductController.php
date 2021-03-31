@@ -17,8 +17,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-         $list_products = ProductModel::all();
-        return view('admin.products.products', compact('list_products'));
+        $list_products = ProductModel::all();
+        $list_categories = CategoryModel::all();
+        return view('admin.products.products', compact('list_products', 'list_categories'));
     }
 
     /**
@@ -29,7 +30,7 @@ class ProductController extends Controller
     public function create()
     {
         $list_categories = CategoryModel::all();
-         return view('admin.products.add_product', compact('list_categories'));
+        return view('admin.products.add_product', compact('list_categories'));
     }
 
     /**
@@ -95,6 +96,7 @@ class ProductController extends Controller
     public function show($id)
     {
         //
+        return ProductModel::find($id);
     }
 
     /**

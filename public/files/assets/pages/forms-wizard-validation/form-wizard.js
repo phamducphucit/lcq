@@ -76,7 +76,7 @@
               return form.valid();
           },
           onFinished: function(event, currentIndex) {
-              alert("Submitted!");
+              $("#example-advanced-form").submit();
               $('.content input[type="text"]').val('');
               $('.content input[type="email"]').val('');
               $('.content input[type="password"]').val('');

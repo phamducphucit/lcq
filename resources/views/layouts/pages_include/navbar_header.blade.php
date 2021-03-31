@@ -7,8 +7,8 @@
             <a class="mobile-menu" id="mobile-collapse" href="#!">
                 <i class="feather icon-menu"></i>
             </a>
-            <a href="index-1.htm">
-                <img class="img-fluid" src="{{ asset('..\files\assets\images\logo.png') }}" alt="Theme-Logo">
+            <a href="/">
+                <img class="img-fluid" src="{{ asset('..\files\assets\images\logo.png') }}" style="height: 50px;" alt="Linh Chi Quán">
             </a>
             <a class="mobile-options">
                 <i class="feather icon-more-horizontal"></i>
@@ -88,8 +88,8 @@
                 <li class="user-profile header-notification">
                     <div class="dropdown-primary dropdown">
                         <div class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{ asset('..\files\assets\images\avatar-4.jpg') }}" class="img-radius" alt="User-Profile-Image">
-                            <span>Soeng Souy</span>
+                            <img src="{{ asset('..\files\assets\images\avatar-1.jpg') }}" class="img-radius" alt="User-Profile-Image">
+                            <span>{{ auth()->user()->name }}</span>
                             <i class="feather icon-chevron-down"></i>
                         </div>
                         <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
@@ -99,22 +99,22 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="user-profile.htm">
+                                <a href="#">
                                     <i class="feather icon-user"></i> Profile
                                 </a>
                             </li>
                             <li>
-                                <a href="email-inbox.htm">
+                                <a href="#">
                                     <i class="feather icon-mail"></i> My Messages
                                 </a>
                             </li>
                             <li>
-                                <a href="auth-lock-screen.htm">
+                                <a href="#">
                                     <i class="feather icon-lock"></i> Lock Screen
                                 </a>
                             </li>
                             <li>
-                                <a href="auth-normal-sign-in.htm">
+                                <a href="{{ route('logout') }}">
                                     <i class="feather icon-log-out"></i> Logout
                                 </a>
                             </li>

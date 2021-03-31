@@ -1,7 +1,11 @@
 @extends('layouts.admin')
 
 @section('content')
-
+<style type="text/css">
+    .checkbox-zoom label input[type="checkbox"], .checkbox-zoom label input[type="radio"]{
+        display: none!important ;
+    }
+</style>
     <!-- Page-header start -->
     <div class="page-header">
         <div class="row align-items-end">
@@ -39,23 +43,24 @@
                 <div class="card-header">
                     <h5>Tạo đơn hàng mới</h5>
                 </div>
-                <div class="card-block">
+                <div class="">
                     <div class="row">
                         <div class="col-md-12">
                             <div id="wizard">
                                 <section>
-                                    <form class="wizard-form" method="post" action="#" id="example-advanced-form">
+                                    <form class="wizard-form" method="post" action="{{ route('add.order.post') }}" id="example-advanced-form">
+                                        @csrf
                                         <!-- Shopping cart field et start -->
                                         <h3> Thông tin khách hàng </h3>
                                         <fieldset>
-                                            <div class="row justify-content-center">
+                                            <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="row">
                                                         <div class="col-sm-12">
 
-                                                            <label class="form-label">Khách hàng <span style="color: red">*</span></label>
+                                                            <!-- <label class="form-label">Khách hàng <span style="color: red">*</span></label> -->
                                                             <div class="input-group">
-                                                                <select class="js-example-basic-single col-sm-12 select2-hidden-accessible" name="customer_id" id="customer_id" onchange="getCustomer()" required="">
+                                                                <select class="js-example-basic-single col-sm-12" name="customer_id" id="customer_id" onchange="getCustomer()" required="">
                                                                     <option value="">---- Chọn khách hàng ----</option>
                                                                     @foreach($list_cus as $customer)
                                                                         <option value="{{ $customer->id }}">{{ $customer->name }} - {{ $customer->phone }}</option>
@@ -91,6 +96,37 @@
                                                         </div>
                                                     </div>
 
+                                                    <div class="checkbox-zoom zoom-primary">
+                                                        <label>
+                                                            <input type="checkbox" name="person_pay_shipping" value="2">
+                                                            <span class="cr">
+                                                                <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
+                                                            </span>
+                                                            <span>Bao cước ship</span>
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group">
+                                                                <label class="control-label">Thu tiền COD</label>
+                                                                <input id="cod" class="form-control" type="text" name="cod" value="" placeholder="VNĐ">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    
+
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group">
+                                                                <label class="control-label">Ghi chú</label>
+                                                                <textarea class="form-control" id="w3review" name="w3review" rows="2" cols="50">
+                                                                </textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </div>
                                             </div>
                                         </fieldset>
@@ -98,26 +134,29 @@
                                         <!-- Delivery Details fieldset start -->
                                         <h3> Thông tin sản phẩm </h3>
                                         <fieldset class="bank-detail p-t-5">
-                                            <table id="e-product-list" class="table table-responsive table-striped dt-responsive nowrap dataTable no-footer dtr-inline cart-page" role="grid" style="width: 100%;">
-                                                    <tr id="row_1" class="row">
-                                                        <td>
-                                                            <select class="js-example-data-array col-sm-12" name="product_id[]" required="">
-                                                                <option value="">---- Chọn sản phẩm ----</option>
-                                                                @foreach($list_products as $product)
-                                                                    <option value="{{ $product->id }}">{{ $product->name }}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </td>
-                                                        <td>
-                                                            <input type="number[]" class="form-control" style="width: 100%;" value="">
-                                                        </td>
-                                                        <td class="action-icon text-center">
-                                                            <a href="#!" class="text-muted" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="icofont icofont-delete-alt"></i></a>
-                                                        </td>
-                                                    </tr>
-                                            </table>
-                                            <input type="button" onclick="addRow()" value="Thêm">
-
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <table id="e-product-list" class="table table-responsive table-striped dt-responsive nowrap dataTable no-footer dtr-inline cart-page" role="grid" style="width: 100%;">
+                                                            <tr id="row_1" style="border: 1px solid #ccc">
+                                                                <td style="width: 715px;padding-bottom:20px;">
+                                                                    <select class="js-example-basic-single1" name="product_id[]" required="" style="width: 100%;" onchange="getProducts1()" id="select_pro1">
+                                                                        <option selected="selected" disabled>---- Chọn sản phẩm ----</option>
+                                                                        @foreach($list_products as $product)
+                                                                            <option value="{{ $product->id }}">{{ $product->code }} - {{ $product->name }}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                    <br/>
+                                                                    <lable style="padding: 15px 15px 15px 0px;float: left">Số lượng</lable>
+                                                                    <input type="number" class="form-control" style="width: 30%;float: left;margin-top: 10px;" value="1" name="quantity[]" required="">
+                                                                    <span id="unit1" style="padding: 15px 15px 5px 5px;float: left"></span>
+                                                                    <!-- <a href="#!" class="text-muted" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" style="float: left;padding: 15px 15px 5px 0px;"><i class="icofont icofont-delete-alt"></i></a> -->
+                                                                </td>
+                                                                
+                                                            </tr>
+                                                    </table>
+                                                    <input class="btn btn-grd-info " type="button" onclick="addRow()" value="Thêm">
+                                                </div>
+                                            </div>
                                         </fieldset>
                                         <!-- Delivery Details fieldset end -->
                                         
@@ -137,6 +176,43 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 <script type="text/javascript">
+    $(document).ready(function() {
+        $(document).ready(function() {
+            $(".js-example-basic-single1").select2();
+        });
+    });
+
+    function getProducts1(){
+        var id = document.getElementById("select_pro1").value;
+        axios.get('/product/show-product/' + id ).then(res=>{
+            if(res.status==200){
+                console.log(res.data);
+                if(res.data.unit == 1){
+                    document.getElementById("unit1").innerHTML = "Kg";
+                }else{
+                    document.getElementById("unit1").innerHTML = "Hộp";
+                }
+            }
+        }).catch(err=>{
+            console.log(err)
+        });
+    }
+
+    function getProduct(id_row){
+        var id = document.getElementById("select_pro"+id_row).value;
+        axios.get('/product/show-product/' + id ).then(res=>{
+            if(res.status==200){
+                console.log(res.data);
+                if(res.data.unit == 1){
+                    document.getElementById("unit"+id_row).innerHTML = "Kg";
+                }else{
+                    document.getElementById("unit"+id_row).innerHTML = "Hộp";
+                }
+            }
+        }).catch(err=>{
+            console.log(err)
+        });
+    }
 
     function getCustomer() {
             var id = document.getElementById("customer_id").value;
@@ -155,11 +231,31 @@
 
     function addRow()
     {
-      var new_id = $('.row').length + 1;
+      var new_id = $('tr').length + 1;
 
-      var new_row = $("#e-product-list tr:first").clone().attr('id','row_'+new_id);
+      var new_row = '';
+      new_row += '<tr id="row_'+new_id+'" style="border: 1px solid #ccc">';
+      new_row += '<td style="width: 715px;padding-bottom:20px;" >'+
+                        '<select class="js-example-basic-single'+new_id+'" style="width: 100%;" name="product_id[]" onchange="getProduct('+new_id+')" id="select_pro'+new_id+'">'+
+                          '<option selected="selected" disabled>---- Chọn sản phẩm ----</option>'+
+                            @foreach($list_products as $product)
+                                '<option value="{{ $product->id }}">{{ $product->code }} - {{ $product->name }}</option>'+
+                            @endforeach
+                        '</select>'+
+                        '<lable style="padding: 15px 15px 15px 0px;float: left">Số lượng</lable>'+
+                        '<input type="number" class="form-control" style="width: 30%;float: left;margin-top: 10px;" value="1" name="quantity[]" required="">'+
+                        '<span id="unit'+new_id+'" style="padding: 15px 15px 5px 5px;float: left"></span>'+
+                        '<a href="javascript:deleteRow('+new_id+')" class="text-muted" data-toggle="tooltip" data-placement="top" title="Xóa" data-original-title="Xóa" style="float: left;padding: 15px;"><i class="icofont icofont-delete-alt"></i></a>'+
+                    '</td>';
 
       $("#e-product-list").append(new_row);
+      $(".js-example-basic-single"+new_id).select2();
+    }
+
+    function deleteRow(rowid)  
+    {   
+        var row = document.getElementById("row_"+rowid);
+        row.parentNode.removeChild(row);
     }
 </script>
 

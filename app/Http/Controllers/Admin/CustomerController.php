@@ -20,7 +20,12 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $list_customers = CustomerModel::all();
+        if(auth()->user()->isAdmin()){
+            $list_customers = CustomerModel::all();
+        }else{
+            $list_customers = CustomerModel::where("user_id", "=", auth()->user()->id)->get();
+        }
+        
         return view('admin.customers.customers', compact('list_customers'));
     }
 
@@ -46,13 +51,11 @@ class CustomerController extends Controller
         //validate
         $validate = Validator::make($request->all(), [
             'name' => 'required',            
-            'user_id' => 'required',
             'phone' => 'required',
             'address' => 'required|max:191',
             'province_id' => 'required',
             'district_id' => 'required',
             'ward_id' => 'required',
-            'transport' => 'required'            
             ],
         );
 
@@ -65,7 +68,7 @@ class CustomerController extends Controller
         $customer = new CustomerModel();
 
         $customer->name = $request->name;
-        $customer->user_id = $request->user_id;
+        $customer->user_id = auth()->user()->id;
         $customer->phone = $request->phone;
         $customer->adress = $request->address;
         $customer->province_id = $request->province_id;
@@ -128,13 +131,11 @@ class CustomerController extends Controller
         //validate
         $validate = Validator::make($request->all(), [
             'name' => 'required',            
-            'user_id' => 'required',
             'phone' => 'required',
             'address' => 'required|max:191',
             'province_id' => 'required',
             'district_id' => 'required',
-            'ward_id' => 'required',
-            'transport' => 'required'            
+            'ward_id' => 'required'
             ],
         );
 
@@ -147,7 +148,7 @@ class CustomerController extends Controller
         $customer = CustomerModel::find($id);
 
         $customer->name = $request->name;
-        $customer->user_id = $request->user_id;
+        $customer->user_id = auth()->user()->id;
         $customer->phone = $request->phone;
         $customer->adress = $request->address;
         $customer->province_id = $request->province_id;

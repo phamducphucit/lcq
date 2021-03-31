@@ -1,82 +1,278 @@
 @extends('layouts.admin')
 
 @section('content')
+    <!-- list css -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('..\files\assets\pages\list-scroll\list.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('..\files\bower_components\stroll\css\stroll.css')}}">
+
     <div class="row">
         <!-- task, page, download counter  start -->
         <div class="col-xl-3 col-md-6">
-            <div class="card bg-c-yellow update-card">
-                <div class="card-block">
-                    <div class="row align-items-end">
-                        <div class="col-8">
-                            <h4 class="text-white">$30200</h4>
-                            <h6 class="text-white m-b-0">All Earnings</h6>
-                        </div>
-                        <div class="col-4 text-right">
-                            <canvas id="update-chart-1" height="50"></canvas>
+            <a href="{{ route('list.orders')}}" title="Danh sách đơn hàng">
+                <div class="card bg-c-blue text-white">
+                    <div class="card-block">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <p class="m-b-5">Đơn hàng</p>
+                                <h4 class="m-b-0">{{$count_order}}</h4>
+                            </div>
+                            <div class="col col-auto text-right">
+                                <i class="feather icon-shopping-cart f-50 text-c-blue"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="card-footer">
-                    <p class="text-white m-b-0"><i class="feather icon-clock text-white f-14 m-r-10"></i>update : 2:15 am</p>
-                </div>
-            </div>
+            </a>
         </div>
-        <div class="col-xl-3 col-md-6">
-            <div class="card bg-c-green update-card">
-                <div class="card-block">
-                    <div class="row align-items-end">
-                        <div class="col-8">
-                            <h4 class="text-white">290+</h4>
-                            <h6 class="text-white m-b-0">Page Views</h6>
+        @if (Auth::user()->isAdmin())
+            <div class="col-xl-3 col-md-6">
+                <a href="{{ route('list.products')}}" title="Danh sách đơn hàng">
+                    <div class="card bg-c-green text-white">
+                        <div class="card-block">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <p class="m-b-5">Sản phẩm</p>
+                                    <h4 class="m-b-0">{{$count_product}}</h4>
+                                </div>
+                                <div class="col col-auto text-right">
+                                    <i class="feather icon-credit-card f-50 text-c-green"></i>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-4 text-right">
-                            <canvas id="update-chart-2" height="50"></canvas>
+                    </div>
+                </a>
+            </div>
+        @endif
+        <div class="col-xl-3 col-md-6">
+            <a href="{{ route('list.customers')}}" title="Danh sách đơn hàng">
+                <div class="card bg-c-yellow text-white">
+                    <div class="card-block">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <p class="m-b-5">Khách hàng</p>
+                                <h4 class="m-b-0">{{$count_customer}}</h4>
+                            </div>
+                            <div class="col col-auto text-right">
+                                <i class="feather icon-user f-50 text-c-yellow"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="card-footer">
-                    <p class="text-white m-b-0"><i class="feather icon-clock text-white f-14 m-r-10"></i>update : 2:15 am</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-md-6">
-            <div class="card bg-c-pink update-card">
-                <div class="card-block">
-                    <div class="row align-items-end">
-                        <div class="col-8">
-                            <h4 class="text-white">145</h4>
-                            <h6 class="text-white m-b-0">Task Completed</h6>
-                        </div>
-                        <div class="col-4 text-right">
-                            <canvas id="update-chart-3" height="50"></canvas>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <p class="text-white m-b-0"><i class="feather icon-clock text-white f-14 m-r-10"></i>update : 2:15 am</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-md-6">
-            <div class="card bg-c-lite-green update-card">
-                <div class="card-block">
-                    <div class="row align-items-end">
-                        <div class="col-8">
-                            <h4 class="text-white">500</h4>
-                            <h6 class="text-white m-b-0">Downloads</h6>
-                        </div>
-                        <div class="col-4 text-right">
-                            <canvas id="update-chart-4" height="50"></canvas>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <p class="text-white m-b-0"><i class="feather icon-clock text-white f-14 m-r-10"></i>update : 2:15 am</p>
-                </div>
-            </div>
+            </a>
         </div>
         <!-- task, page, download counter  end -->
     </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <!-- List type card start -->
+            <div class="card">
+               
+                <div class="row card-block">
+                    <div class="col-md-12 col-lg-4">
+                        <h6 class="sub-title"><label class="label  label-success">SÂM TƯƠI</label></h6>
+                        <ul class="basic-list">
+                            @foreach($list_samtuoi as $samtuoi)
+                                @if($samtuoi->quantity <= 0) 
+                                <li class="" style="color: #bd4147;opacity: 0.8;">
+                                    <div class="row m-b-2">
+                                        <div class="col-auto p-r-0">
+                                            <img src="/{{ $samtuoi->image }}" alt="" class="img-fluid img-50">
+                                        </div>
+                                        <div class="col">
+                                            <h6><strong><small>{{$samtuoi->code}}</small> - {{$samtuoi->name}}</strong></h6>
+                                            <p><i>Số lượng trong kho: <b>{{$samtuoi->quantity}}</b> {{$samtuoi->donvi}}</i></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                @else 
+                                <li class="" style="color: green">
+                                    <div class="row m-b-2">
+                                        <div class="col-auto p-r-0">
+                                            <img src="/{{ $samtuoi->image }}" alt="" class="img-fluid img-50">
+                                        </div>
+                                        <div class="col">
+                                            <h6><strong><small>{{$samtuoi->code}}</small> - {{$samtuoi->name}}</strong></h6>
+                                            <p><i>Số lượng trong kho: <b>{{$samtuoi->quantity}}</b> {{$samtuoi->donvi}}</i></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
+
+                    <div class="col-md-12 col-lg-4">
+                        <h6 class="sub-title"><label class="label  label-info">SÂM TRỌC</label></h6>
+                        <ul class="basic-list">
+                            @foreach($list_samtroc as $samtroc)
+                                @if($samtroc->quantity <= 0) 
+                                <li class="" style="color: #bd4147;opacity: 0.8;">
+                                    <div class="row m-b-2">
+                                        <div class="col-auto p-r-0">
+                                            <img src="/{{ $samtroc->image }}" alt="" class="img-fluid img-50">
+                                        </div>
+                                        <div class="col">
+                                            <h6><strong><small>{{$samtroc->code}}</small> - {{$samtroc->name}}</strong></h6>
+                                            <p><i>Số lượng trong kho: <b>{{$samtroc->quantity}}</b> {{$samtroc->donvi}}</i></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                @else 
+                                <li class="" style="color: green">
+                                    <div class="row m-b-2">
+                                        <div class="col-auto p-r-0">
+                                            <img src="/{{ $samtroc->image }}" alt="" class="img-fluid img-50">
+                                        </div>
+                                        <div class="col">
+                                            <h6><strong><small>{{$samtroc->code}}</small> - {{$samtroc->name}}</strong></h6>
+                                            <p><i>Số lượng trong kho: <b>{{$samtroc->quantity}}</b> {{$samtroc->donvi}}</i></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
+
+                    <div class="col-md-12 col-lg-4">
+                        <h6 class="sub-title"><label class="label  label-info">SÂM KHÔ</label></h6>
+                        <ul class="basic-list">
+                            @foreach($list_samkho as $samkho)
+                                @if($samkho->quantity <= 0) 
+                                <li class="" style="color: #bd4147;opacity: 0.8;">
+                                    <div class="row m-b-2">
+                                        <div class="col-auto p-r-0">
+                                            <img src="/{{ $samkho->image }}" alt="" class="img-fluid img-50">
+                                        </div>
+                                        <div class="col">
+                                            <h6><strong><small>{{$samkho->code}}</small> - {{$samkho->name}}</strong></h6>
+                                            <p><i>Số lượng trong kho: <b>{{$samkho->quantity}}</b> {{$samkho->donvi}}</i></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                @else 
+                                <li class="" style="color: green">
+                                    <div class="row m-b-2">
+                                        <div class="col-auto p-r-0">
+                                            <img src="/{{ $samkho->image }}" alt="" class="img-fluid img-50">
+                                        </div>
+                                        <div class="col">
+                                            <h6><strong><small>{{$samkho->code}}</small> - {{$samkho->name}}</strong></h6>
+                                            <p><i>Số lượng trong kho: <b>{{$samkho->quantity}}</b> {{$samkho->donvi}}</i></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
+
+                    <div class="col-md-12 col-lg-4">
+                        <h6 class="sub-title"><label class="label  label-info">SÂM NƯỚC</label></h6>
+                        <ul class="basic-list">
+                            @foreach($list_samnuoc as $samnuoc)
+                                @if($samnuoc->quantity <= 0) 
+                                <li class="" style="color: #bd4147;opacity: 0.8;">
+                                    <div class="row m-b-2">
+                                        <div class="col-auto p-r-0">
+                                            <img src="/{{ $samnuoc->image }}" alt="" class="img-fluid img-50">
+                                        </div>
+                                        <div class="col">
+                                            <h6><strong><small>{{$samnuoc->code}}</small> - {{$samnuoc->name}}</strong></h6>
+                                            <p><i>Số lượng trong kho: <b>{{$samnuoc->quantity}}</b> {{$samnuoc->donvi}}</i></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                @else 
+                                <li class="" style="color: green">
+                                    <div class="row m-b-2">
+                                        <div class="col-auto p-r-0">
+                                            <img src="/{{ $samnuoc->image }}" alt="" class="img-fluid img-50">
+                                        </div>
+                                        <div class="col">
+                                            <h6><strong><small>{{$samnuoc->code}}</small> - {{$samnuoc->name}}</strong></h6>
+                                            <p><i>Số lượng trong kho: <b>{{$samnuoc->quantity}}</b> {{$samnuoc->donvi}}</i></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
+
+                    <div class="col-md-12 col-lg-4">
+                        <h6 class="sub-title"><label class="label  label-info">NẤM</label></h6>
+                        <ul class="basic-list">
+                            @foreach($list_nam as $nam)
+                                @if($nam->quantity <= 0) 
+                                <li class="" style="color: #bd4147;opacity: 0.8;">
+                                    <div class="row m-b-2">
+                                        <div class="col-auto p-r-0">
+                                            <img src="/{{ $nam->image }}" alt="" class="img-fluid img-50">
+                                        </div>
+                                        <div class="col">
+                                            <h6><strong><small>{{$nam->code}}</small> - {{$nam->name}}</strong></h6>
+                                            <p><i>Số lượng trong kho: <b>{{$nam->quantity}}</b> {{$nam->donvi}}</i></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                @else 
+                                <li class="" style="color: green">
+                                    <div class="row m-b-2">
+                                        <div class="col-auto p-r-0">
+                                            <img src="/{{ $nam->image }}" alt="" class="img-fluid img-50">
+                                        </div>
+                                        <div class="col">
+                                            <h6><strong><small>{{$nam->code}}</small> - {{$nam->name}}</strong></h6>
+                                            <p><i>Số lượng trong kho: <b>{{$nam->quantity}}</b> {{$nam->donvi}}</i></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
+
+                    <div class="col-md-12 col-lg-4">
+                        <h6 class="sub-title"><label class="label  label-info">THỰC PHẨM CHỨC NĂNG</label></h6>
+                        <ul class="basic-list">
+                            @foreach($list_thucpham as $thucpham)
+                                @if($thucpham->quantity <= 0) 
+                                <li class="" style="color: #bd4147;opacity: 0.8;">
+                                    <div class="row m-b-2">
+                                        <div class="col-auto p-r-0">
+                                            <img src="/{{ $thucpham->image }}" alt="" class="img-fluid img-50">
+                                        </div>
+                                        <div class="col">
+                                            <h6><strong><small>{{$thucpham->code}}</small> - {{$thucpham->name}}</strong></h6>
+                                            <p><i>Số lượng trong kho: <b>{{$thucpham->quantity}}</b> {{$thucpham->donvi}}</i></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                @else 
+                                <li class="" style="color: green">
+                                    <div class="row m-b-2">
+                                        <div class="col-auto p-r-0">
+                                            <img src="/{{ $thucpham->image }}" alt="" class="img-fluid img-50">
+                                        </div>
+                                        <div class="col">
+                                            <h6><strong><small>{{$thucpham->code}}</small> - {{$thucpham->name}}</strong></h6>
+                                            <p><i>Số lượng trong kho: <b>{{$thucpham->quantity}}</b> {{$thucpham->donvi}}</i></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- List type card end -->
+        </div>
+    </div>
+
+
 
 
 

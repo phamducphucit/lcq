@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Project Laravel 7</title>
+    <title>TỔNG KHO SÀI GÒN - LINH CHI QUÁN</title>
   
     <!-- Meta -->
     <meta charset="utf-8">
@@ -36,15 +36,23 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('..\files\bower_components\multiselect\css\multi-select.css')}}">
     <!--forms-wizard css-->
     <link rel="stylesheet" type="text/css" href="{{ asset('..\files\bower_components\jquery.steps\css\jquery.steps.css') }}">
-    <!-- Style.css -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('..\files\assets\css\style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('..\files\assets\css\jquery.mCustomScrollbar.css') }}">
+     <!-- Tags css -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('..\files\bower_components\bootstrap-tagsinput\css\bootstrap-tagsinput.css') }}">
+    <!-- Switch component css -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('..\files\bower_components\switchery\css\switchery.min.css')}}">
     <!-- themify-icons line icon -->
     <link rel="stylesheet" type="text/css" href="{{ asset('..\files\assets\icon\themify-icons\themify-icons.css')}}">
+    <!-- simple line icon -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('..\files\assets\icon\simple-line-icons\css\simple-line-icons.css')}}">
     <!-- ico font -->
     <link rel="stylesheet" type="text/css" href="{{ asset('..\files\assets\icon\icofont\css\icofont.css')}}">
     <!-- feather Awesome -->
     <link rel="stylesheet" type="text/css" href="{{ asset('..\files\assets\icon\feather\css\feather.css')}}">
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('..\files\assets\css\style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('..\files\assets\css\jquery.mCustomScrollbar.css') }}">
+    
+    
 </head>
 
 <body>
@@ -180,7 +188,7 @@
     <!-- Model animation js -->
     <script src="{{ asset('..\files\assets\js\classie.js')}}"></script>
     <script src="{{ asset('..\files\assets\js\modalEffects.js')}}"></script>
-
+    <script type="text/javascript" src="{{ asset('..\files\assets\pages\product-list\product-list.js')}}"></script>
     <!-- Select 2 js -->
     <script type="text/javascript" src="{{ asset('..\files\bower_components\select2\js\select2.full.min.js')}}"></script>
     <!-- Multiselect js -->
@@ -188,8 +196,10 @@
     </script>
     <script type="text/javascript" src="{{ asset('..\files\bower_components\multiselect\js\jquery.multi-select.js')}}"></script>
     <script type="text/javascript" src="{{ asset('..\files\assets\js\jquery.quicksearch.js')}}"></script>
-
+<!-- Switch component js -->
+    <script type="text/javascript" src="{{ asset('..\files\bower_components\switchery\js\switchery.min.js')}}"></script>
     <!-- Custom js -->
+
     <script src="{{ asset('..\files\assets\pages\forms-wizard-validation\form-wizard.js')}}"></script>
     <script type="text/javascript" src="{{ asset('..\files\assets\pages\advance-elements\select2-custom.js')}}"></script>
 

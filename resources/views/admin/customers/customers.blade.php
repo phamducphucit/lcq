@@ -7,7 +7,7 @@
             <div class="col-lg-8">
                 <div class="page-header-title">
                     <div class="d-inline">
-                        <h4>Manager Customers</h4>
+                        <h4>Quản lý khách hàng</h4>
                         <!-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> -->
                     </div>
                 </div>
@@ -18,7 +18,7 @@
                         <li class="breadcrumb-item">
                             <a href="{{ route('home') }}"> <i class="feather icon-home"></i> </a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">Customers</a>
+                        <li class="breadcrumb-item"><a href="#!">Khách hàng</a>
                         </li>
                         <!-- <li class="breadcrumb-item"><a href="#!">Basic Initialization</a>
                         </li> -->
@@ -35,10 +35,10 @@
 		        <div class="card-header">
 		        	<div class="row">
         				<div class="col-sm-6">
-        					 <h4>List Customers </h4>
+        					 <h4>Danh sách khách hàng </h4>
         				</div>
         				<div class="col-sm-6">
-        					<h5 style="float: right;"><a href="{{ route('add.customer') }}" class="btn btn-primary">Add New Customer</a></h5>
+        					<h5 style="float: right;"><a href="{{ route('add.customer') }}" class="btn btn-primary">Thêm khách hàng mới</a></h5>
 
         				</div>
         			</div>		            
@@ -48,23 +48,19 @@
 		                <table id="simpletable" class="table table-striped table-bordered nowrap">
 		                    <thead>
 		                    <tr>
-		                    	<th>No</th>
-		                    	<th>Image</th>
-                                <th>User id</th>
-		                        <th>Name</th>
-		                        <th>Phone</th>
-		                        <th>Address</th>
-		                        <th>Active</th>
+		                    	<th>Hình</th>
+		                        <th>Tên</th>
+		                        <th>Điện thoại</th>
+		                        <th>Địa chỉ</th>
+		                        <th>Hành động</th>
 		                    </tr>
 		                    </thead>
 		                    <tbody>
 		                    	@foreach($list_customers as $customer)
 		                        <tr>
-		                        	<td>{{ $customer->id }}</td>
 		                            <td>
 		                            	<img src="/{{ $customer->image }}" style="width: 50px; height: 50px;">
 		                            </td>
-                                    <td>{{ $customer->user_id }}</td>
 		                            <td>{{ $customer->name }}</td>
 		                            <td>{{ $customer->phone }}</td>
 		                            <td>{{ $customer->adress }}</td>
@@ -109,8 +105,8 @@
 <script>
    function deleteCustomer(id){
          Swal.fire({
-       title: 'Are you sure you want to delete the Customer?',
-       text: "You won't be able to revert this!",
+       title: 'Bạn có chắc chắn muốn xóa khách hàng này không?',
+       text: "Nếu xóa bạn sẽ không khôi phục lại được.",
        icon: 'warning',
        type: 'warning',
        timer: 14400, 
@@ -118,7 +114,7 @@
        showConfirmButton: true,
        confirmButtonColor: '#3085d6',
        cancelButtonColor: '#d33',
-       confirmButtonText: 'Yes, delete it!'
+       confirmButtonText: 'Có, xóa nó đi!'
      }).then((result) => {
        if (result.value) {
             $.ajax({
@@ -128,8 +124,8 @@
                     }         
             });
          Swal.fire(
-           'Deleted!',
-           'Your file has been deleted.',
+           'Đã xóa!',
+           'Khách hàng này đã bị xóa!',
            'success',
          )
        }

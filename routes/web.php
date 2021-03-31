@@ -24,7 +24,7 @@ use App\Http\Controllers\Admin\CategoryController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/home');
 });
 
 Auth::routes();
@@ -32,6 +32,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware'=>'auth'], function (){
+	// Log out
+	Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 	// Users
 	Route::group(['prefix'=>'user'], function(){
 		Route::get('/list-users', [UsersController::class, 'index'])->name('list.users');
@@ -79,6 +81,7 @@ Route::group(['middleware'=>'auth'], function (){
 		Route::get('/edit-product/{id}', [ProductController::class, 'edit'])->name('edit.product');
 		Route::post('/edit-product/{id}', [ProductController::class, 'update'])->name('update.product.post');
 		Route::get('/delete-product/{id}', [ProductController::class, 'destroy'])->name('delete.product');
+		Route::get('/show-product/{id}', [ProductController::class, 'show'])->name('show.product');
 	});
 
 	// Customer

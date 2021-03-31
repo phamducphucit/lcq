@@ -5,21 +5,21 @@
             "ordering": false,
             "bLengthChange": false,
             "info":     false,
-            "searching": false
+            "searching": true
         });
-        $(".save_btn").on("click", function() {
+   //      $(".save_btn").on("click", function() {
 				
-				$('.pname').val('');
-				$('.jFiler-items').css('display','none');
-				$('.stock').val('');
-				$('.pamount').val('');
-				$("#modal-13").modal('hide');
+			// 	$('.pname').val('');
+			// 	$('.jFiler-items').css('display','none');
+			// 	$('.stock').val('');
+			// 	$('.pamount').val('');
+			// 	$("#modal-13").modal('hide');
 	
-			});
-        $(".close_btn").on("click", function() {
-				$('.pname').val('');
-				$('.jFiler-items').css('display','none');
-				$('.stock').val('');
-				$('.pamount').val('');
-			});
+			// });
+   //      $(".close_btn").on("click", function() {
+			// 	$('.pname').val('');
+			// 	$('.jFiler-items').css('display','none');
+			// 	$('.stock').val('');
+			// 	$('.pamount').val('');
+			// });
     } );

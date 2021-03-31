@@ -4,21 +4,14 @@
 <!-- Page-header start -->
     <div class="page-header">
         <div class="row align-items-end">
-            <div class="col-lg-8">
-                <div class="page-header-title">
-                    <div class="d-inline">
-                        <h4>Manager Products</h4>
-                        <!-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
+            
+            <div class="col-lg-12">
                 <div class="page-header-breadcrumb">
                     <ul class="breadcrumb-title">
                         <li class="breadcrumb-item">
                             <a href="{{ route('home') }}"> <i class="feather icon-home"></i> </a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">Products</a>
+                        <li class="breadcrumb-item"><a href="#!">Danh sách sản phẩm</a>
                         </li>
                         <!-- <li class="breadcrumb-item"><a href="#!">Basic Initialization</a>
                         </li> -->
@@ -29,140 +22,87 @@
     </div>
     <!-- Page-header end -->
     <div class="row">
-        <div class="col-sm-12">
-        	<!-- Zero config.table start -->
-		    <div class="card">
-		        <div class="card-header">
-		        	<div class="row">
-        				<div class="col-sm-6">
-        					 <h4>List Products </h4>
-        				</div>
-        				<div class="col-sm-6">
-        					<h5 style="float: right;"><a href="{{ route('add.product') }}" class="btn btn-primary">Add New Product</a></h5>
+        <div class="col-sm-12 filter-bar">
+        	<nav class="navbar navbar-light bg-faded m-b-30 p-10">
+                                                    <ul class="nav navbar-nav">
+                                                        <li class="nav-item active">
+                                                            <a class="nav-link" href="#!"><span class="sr-only">(current)</span></a>
+                                                        </li>
+                                                        <li class="nav-item dropdown">
+                                                            <a class="nav-link dropdown-toggle" href="#!" id="bydate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icofont icofont-clock-time"></i> Danh mục</a>
+                                                            <div class="dropdown-menu" aria-labelledby="bydate">
+                                                                <a class="dropdown-item" href="#!">Tất cả</a>
+                                                                <div class="dropdown-divider"></div>
+                                                                @foreach($list_categories as $category)
+                                                                    <a class="dropdown-item" href="#!">{{ $category->name }}</a>
+                                                                @endforeach       
+                                                            </div>
+                                                        </li>
+                                                        <!-- end of by date dropdown -->
+                                                        <li class="nav-item dropdown">
+                                                            <a class="nav-link dropdown-toggle" href="#!" id="bystatus" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icofont icofont-chart-histogram-alt"></i> Trạng thái</a>
+                                                            <div class="dropdown-menu" aria-labelledby="bystatus">
+                                                                <a class="dropdown-item" href="#!">Tất cả</a>
+                                                                <div class="dropdown-divider"></div>
+                                                                <a class="dropdown-item" href="#!">Còn hàng</a>
+                                                                <a class="dropdown-item" href="#!">Hết hàng</a>
+                                                            </div>
+                                                        </li>
+                                                        <!-- end of by status dropdown -->
+                                                        <li>
+                                                            <div style="margin:10px 0px;">
+                                                                <input type="text" name="" class="form-control" placeholder="Tên sản phẩm...">
+                                                            </div>
+                                                        </li>
+                                                        </ul>
+                                                        <div class="nav-item nav-grid">
+                                                                <a href="{{ route('add.product') }}" title="Thêm sản phẩm" class="btn btn-sm btn-primary">
+                                                                    <i class="icofont icofont-plus"></i> Thêm sản phẩm
+                                                                </a>
+                                                        </div>
+                                                        <!-- end of by priority dropdown -->
 
-        				</div>
-        			</div>		            
-		        </div>
-		        <div class="card-block">
-		            <div class="dt-responsive table-responsive">
-		                <table id="simpletable" class="table table-striped table-bordered nowrap">
-		                    <thead>
-		                    <tr>
-		                    	<th>No</th>
-		                    	<th>Image</th>
-		                        <th>Name</th>
-		                        <th>Category</th>
-		                        <th>Code</th>
-		                        <th>Description</th>
-		                        <th>Price</th>
-		                        <th>Quantity</th>
-		                        <th>Unit</th>
-		                        <th>Active</th>
-		                    </tr>
-		                    </thead>
-		                    <tbody>
-		                    	@foreach($list_products as $product)
-		                        <tr>
-		                        	<td>{{ $product->id }}</td>
-		                            <td>
-		                            	<img src="/{{ $product->image }}" style="width: 50px; height: 50px;">
-		                            </td>
-		                            <td>{{ $product->name }}</td>
-		                            <td>{{ $product->category->name }}</td>
-		                            <td>{{ $product->code }}</td>
-		                            <td>{{ $product->description }}</td>
-		                            <td>{{ $product->price }}</td>
-		                            <td>{{ $product->quantity }}</td>
-		                            <td>{{ $product->unit }}</td>
-		                            <!-- <td>
-		                            	<a href="{{route('edit.product', $product->id)}}">
-					                     <i class="fa fa-edit blue"></i>Edit
-					                     </a>
-					                     /
-					                     <span onclick="deleteProduct({{ $product->id }})">
-						                     <i class="fa fa-trash" style="color: red" ></i>Xóa
-						                   </span>
-		                            </td> -->
-		                            <td class="action-icon">
-                                        <a href="{{ route('edit.product',$product->id)}}" class="m-r-15 text-muted" data-placement="top" title="" data-original-title="Edit"><i class="icofont icofont-ui-edit"></i></a>
-                                        <a href="#!" onclick="deleteProduct({{ $product->id }})" class="text-muted" data-placement="top" title="" data-original-title="Delete"><i class="icofont icofont-delete-alt"></i></a>
-                                    </td>
-		                        </tr>
-		                        @endforeach
-		                    </tbody>
-		                    <!-- <tfoot>
-		                    <tr>
-		                        <th>Name</th>
-		                        <th>Position</th>
-		                        <th>Office</th>
-		                        <th>Age</th>
-		                        <th>Start date</th>
-		                        <th>Salary</th>
-		                    </tr>
-		                    </tfoot> -->
-		                </table>
-		            </div>
-		        </div>
-		    </div>
-		    <!-- Zero config.table end -->
-
-
-		    <!-- Add Contact Start Model start-->
-            <!-- <div class="md-modal md-effect-13 addcontact" id="modal_create_product">
-                <div class="md-content">
-                    <h3 class="f-26">Add Product</h3>
-                    <div>
-                        <div class="input-group">
-                            <input type="file" class="form-control pname" placeholder="Prodcut Name">
-                            <span class="input-group-addon btn btn-primary">Chooese File</span>
+                                                </nav>
+        </div>
+    </div>
+    <div class="row">
+        @foreach($list_products as $product)
+            
+                <div class="col-xl-3 col-md-6">
+                    <div class="card @if($product->quantity <= 0) bg-c-pink @else bg-c-green @endif update-card">
+                        <div class="card-block p5">
+                            <div class="row align-items-end">
+                                <div class="col-8">
+                                    <h4 class="text-white">{{ $product->name }}</h4>
+                                    <h6 class="text-white m-b-0">{{ number_format($product->price) }} Vnđ</h6>
+                                </div>
+                                <div class="col-4 text-right">
+                                    <img src="/{{ $product->image }}" style="width: 65px;height: 65px">
+                                </div>
+                            </div>
                         </div>
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="icofont icofont-user"></i></span>
-                            <input type="text" name="name" id="name" class="form-control pname" placeholder="Product Name">
-                        </div>
-                        <div class="input-group">
-                            <select class="form-control stock" name="category_id" id="category_id">
-                                <option value="">---- Select Category ----</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                            </select>
-                        </div>
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="icofont icofont-user"></i></span>
-                            <input type="text" name="code" id="code" class="form-control pamount" placeholder="Enter Code">
-                        </div>
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="icofont icofont-user"></i></span>
-                            <input type="text" name="description" id="description" class="form-control pamount" placeholder="Enter Description">
-                        </div>
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="icofont icofont-user"></i></span>
-                            <input type="text" name="price" id="price" class="form-control pamount" placeholder="Enter Price">
-                        </div>
-
-                         <div class="input-group">
-                            <span class="input-group-addon"><i class="icofont icofont-user"></i></span>
-                            <input type="text" name="quantity" id="quantity" class="form-control pamount" placeholder="Enter Quantity">
-                        </div>
-                         <div class="input-group">
-                            <select class="form-control stock" name="unit" id="unit">
-                                <option value="">---- Select Unit ----</option>
-                                <option value="1">Kg</option>
-                                <option value="2">Box</option>
-                            </select>
-                        </div>
-
-                        <div class="text-center">
-                            <button type="submit" id="submit" class="btn btn-primary waves-effect m-r-20 f-w-600 d-inline-block save_btn">Save</button>
-                            <button type="button" class="btn btn-primary waves-effect m-r-20 f-w-600 md-close d-inline-block close_btn">Close</button>
+                        <div class="card-footer">
+                            <div class="task-list-table">
+                                <p class="task-due"><strong> Số lượng : </strong><strong class="label label-primary">{{ $product->quantity }} {{ $product->donvi }}</strong></p>
+                            </div>
+                            <div class="task-board m-0">
+                                <a href="#" class="btn btn-info btn-mini b-none">{{ $product->code }}</a>
+                                <!-- end of dropdown-secondary -->
+                                <div class="dropdown-secondary dropdown">
+                                    <button class="btn btn-info btn-mini dropdown-toggle waves-light b-none txt-muted" type="button" id="dropdown14" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="icofont icofont-navigation-menu"></i></button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdown14" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 24px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                        <a class="dropdown-item waves-light waves-effect" onclick="deleteProduct({{ $product->id }})" href="#!"><i class="icofont icofont-spinner-alt-5"></i> Xóa</a>
+                                        <a class="dropdown-item waves-light waves-effect" href="{{ route('edit.product',$product->id)}}"><i class="icofont icofont-ui-edit"></i> Chỉnh sửa</a>
+                                    </div>
+                                    <!-- end of dropdown menu -->
+                                </div>
+                                <!-- end of seconadary -->
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="md-overlay"></div> -->
-            <!-- Add Contact Ends Model end-->
-        </div>
+            
+        @endforeach                                
     </div>
 @endsection
 
@@ -177,8 +117,8 @@
 <script>
    function deleteProduct(id){
          Swal.fire({
-       title: 'Are you sure you want to delete the product?',
-       text: "You won't be able to revert this!",
+       title: 'Bạn có chắc chắn muốn xóa sản phẩm này không?',
+       text: "Bạn sẽ không thể lấy lại sản phẩm này sau khi xóa.",
        icon: 'warning',
        type: 'warning',
        timer: 14400, 
@@ -186,7 +126,7 @@
        showConfirmButton: true,
        confirmButtonColor: '#3085d6',
        cancelButtonColor: '#d33',
-       confirmButtonText: 'Yes, delete it!'
+       confirmButtonText: 'Có, xóa nó đi!'
      }).then((result) => {
        if (result.value) {
             $.ajax({
@@ -196,8 +136,8 @@
                     }         
             });
          Swal.fire(
-           'Deleted!',
-           'Your file has been deleted.',
+           'Đã xóa sản phẩm!',
+           'Bạn đã xóa sản phẩm!',
            'success',
          )
        }

@@ -8,7 +8,7 @@
             <div class="col-lg-8">
                 <div class="page-header-title">
                     <div class="d-inline">
-                        <h4>Add Customer</h4>
+                        <h4>Thêm khách hàng mới</h4>
                         <!-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> -->
                     </div>
                 </div>
@@ -19,9 +19,9 @@
                         <li class="breadcrumb-item">
                             <a href="{{ route('home') }}"> <i class="feather icon-home"></i> </a>
                         </li>
-                        <li class="breadcrumb-item"><a href="{{ route('list.customers')}}">Customers</a>
+                        <li class="breadcrumb-item"><a href="{{ route('list.customers')}}">Khách hàng</a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">Add Customer</a>
+                        <li class="breadcrumb-item"><a href="#!">Thêm khách hàng mới</a>
                         </li>
                     </ul>
                 </div>
@@ -42,39 +42,28 @@
 			            <div class="card-header-right"><i class="icofont icofont-spinner-alt-5"></i></div>
 			        </div> -->
 			        <div class="card-block">
-			            <h4 class="sub-title">Add Customer</h4>
+			            <h4 class="sub-title">Thông tin khách hàng</h4>
 			            <div class="form-group row">
 	                        <div class="col-sm-6">
-	                        	<label>Name :</label>
-	                           <input type="text" name="name" id="name" class="form-control pname {{$errors->has('name') ? 'is-invalid' : '' }}" placeholder="Enter Name">
+	                        	<label>Tên khách hàng :</label>
+	                           <input type="text" name="name" id="name" class="form-control pname {{$errors->has('name') ? 'is-invalid' : '' }}" placeholder="Nhập tên" required="">
 	                           @if($errors->has('name'))
 		                          <span class="messages" style="color: red;">{{$errors->first('name')}}</span>
 		                       @endif 
 	                        </div>
-	                        <div class="col-sm-6">
-	                        	<label>User Id :</label>
-	                            <select class="form-control stock {{$errors->has('user_id') ? 'is-invalid' : '' }}" name="user_id" id="category_id">
-                                <option value="">---- Select User id ----</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                            	</select>
-                            	@if($errors->has('user_id'))
-		                          <span class="messages" style="color: red;">{{$errors->first('user_id')}}</span>
-		                       @endif 
-	                        </div>
+	                        
 	                    </div>
 	                    <div class="form-group row">
 	                        <div class="col-sm-6">
-	                        	<label>Phone :</label>
-	                            <input type="text" name="phone" id="phone" class="form-control pamount {{$errors->has('phone') ? 'is-invalid' : '' }}" placeholder="Enter Phone">
+	                        	<label>Điện thoại :</label>
+	                            <input type="text" name="phone" id="phone" class="form-control pamount {{$errors->has('phone') ? 'is-invalid' : '' }}" placeholder="Nhập số điện thoại" required="">
 	                            @if($errors->has('phone'))
 		                          <span class="messages" style="color: red;">{{$errors->first('phone')}}</span>
 		                      	@endif 
 	                        </div>
 	                        <div class="col-sm-6">
-	                        	<label>Address :</label>
-	                        	<input type="text" name="address" id="address" class="form-control pamount {{$errors->has('address') ? 'is-invalid' : '' }}" placeholder="Enter Address">
+	                        	<label>Địa chỉ :</label>
+	                        	<input type="text" name="address" id="address" class="form-control pamount {{$errors->has('address') ? 'is-invalid' : '' }}" placeholder="Nhập địa chỉ" required="">
 	                        	@if($errors->has('address'))
 		                          <span class="messages" style="color: red;">{{$errors->first('address')}}</span>
 		                      	@endif 
@@ -87,7 +76,7 @@
 	                        <div class="col-6">
                             <div class="form-group">
                               <label>Tỉnh/Thành phố</label>
-                              <select class="form-control select2bs4" style="width: 100%;"  name="province_id" id="province_id">
+                              <select class="form-control select2bs4" style="width: 100%;"  name="province_id" id="province_id" required="">
                                 <option >--- Tỉnh/Thành phố ---</option>
                                     @foreach($provinces as $province)
                                         <option value="{{$province->id}}"> {{$province->name}} </option>
@@ -98,7 +87,7 @@
                             <div class="col-6">
                             <div class="form-group">
                               <label>Quận/Huyện</label>
-                              <select class="form-control select2bs4" style="width: 100%;" name="district_id" id="district_id">
+                              <select class="form-control select2bs4" style="width: 100%;" name="district_id" id="district_id" required="">
                                 <option>--- Quận/Huyện ---</option>
                                 
                               </select>
@@ -112,15 +101,15 @@
 	                        <div class="col-sm-6">
 	                        	<div class="form-group">
 	                              <label>Xã/Phường</label>
-	                              <select class="form-control select2bs4" style="width: 100%;" name="ward_id" id="ward_id">
+	                              <select class="form-control select2bs4" style="width: 100%;" name="ward_id" id="ward_id" required="">
 	                                <option>--- Xã/Phường ---</option>                     
 	                              </select>
 	                            </div>
 	                        </div>
 	                        <div class="col-sm-6">
-	                            <label>Transport :</label>
+	                            <label>Gửi chành xe:</label>
 	                        	<div class="input-group">
-		                            <input type="text"  name="transport" class="form-control pname {{$errors->has('transport') ? 'is-invalid' : '' }}" placeholder="Enter Transport">
+		                            <input type="text"  name="transport" class="form-control pname {{$errors->has('transport') ? 'is-invalid' : '' }}" placeholder="Nhập thông tin chành xe">
 		                            @if($errors->has('transport'))
 		                          		<span class="messages" style="color: red;">{{$errors->first('transport')}}</span>
 		                       		@endif 
@@ -130,13 +119,13 @@
 	                   	
 	                    <div class="form-group row">
 	                        <div class="col-sm-6">
-	                        	<label>Image :</label>
+	                        	<label>Hình khách hàng :</label>
 	                        	<div class="input-group" style="height: 35px;">
 		                            <input type="file"  name="image" class="form-control pname {{$errors->has('image') ? 'is-invalid' : '' }}" placeholder="Prodcut Name">
 		                            @if($errors->has('image'))
 			                          <span class="messages" style="color: red;">{{$errors->first('image')}}</span>
 			                      	@endif 
-		                            <span class="input-group-addon btn btn-primary">Chooese File</span>
+		                            <span class="input-group-addon btn btn-primary">Chọn hình</span>
 		                            
 	                        	</div>
 	                        </div>
@@ -151,7 +140,7 @@
 	                        	<!--  -->
 	                        </div>
 	                        <div class="col-sm-6">
-	                        	<button type="submit" class="btn btn-primary" style="float: right;">Add New Customer</button>
+	                        	<button type="submit" class="btn btn-primary" style="float: right;">Lưu lại</button>
 	                        </div>
 	                    </div>
 			        </div>

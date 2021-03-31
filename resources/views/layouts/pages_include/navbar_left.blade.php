@@ -1,171 +1,62 @@
 <!-- navbar_left -->
+@if(Auth::check())
 <nav class="pcoded-navbar">
     <div class="pcoded-inner-navbar main-menu">
-        <div class="pcoded-navigatio-lavel">Navigation</div>
+        <div class="pcoded-navigatio-lavel">Menu</div>
         <ul class="pcoded-item pcoded-left-item">
-            <li class="pcoded-hasmenu pcoded-trigger">
-                <a href="javascript:void(0)">
+            
+            <li class="">
+                <a href="{{ route('home') }}">
                     <span class="pcoded-micon"><i class="feather icon-home"></i></span>
-                    <span class="pcoded-mtext">Dashboard</span>
+                    <span class="pcoded-mtext">Bảng điều khiển</span>
                 </a>
-               <!--  <ul class="pcoded-submenu">
-                    <li class="active">
-                        <a href="index-1.htm">
-                            <span class="pcoded-mtext">Default</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="dashboard-crm.htm">
-                            <span class="pcoded-mtext">CRM</span>
-                        </a>
-                    </li>
-                    <li class=" ">
-                        <a href="dashboard-analytics.htm">
-                            <span class="pcoded-mtext">Analytics</span>
-                            <span class="pcoded-badge label label-info ">NEW</span>
-                        </a>
-                    </li>
-                </ul> -->
-            </li>
-            <li class="pcoded-hasmenu">
-                <a href="javascript:void(0)">
-                    <span class="pcoded-micon"><i class="feather icon-sidebar"></i></span>
-                    <span class="pcoded-mtext">Page layouts</span>
-                    <span class="pcoded-badge label label-warning">NEW</span>
-                </a>
-                <ul class="pcoded-submenu">
-                    <li class=" pcoded-hasmenu">
-                        <a href="javascript:void(0)">
-                            <span class="pcoded-mtext">Vertical</span>
-                        </a>
-                        <ul class="pcoded-submenu">
-                            <li class=" ">
-                                <a href="menu-static.htm">
-                                    <span class="pcoded-mtext">Static Layout</span>
-                                </a>
-                            </li>
-                            <li class=" ">
-                                <a href="menu-header-fixed.htm">
-                                    <span class="pcoded-mtext">Header Fixed</span>
-                                </a>
-                            </li>
-                            <li class=" ">
-                                <a href="menu-compact.htm">
-                                    <span class="pcoded-mtext">Compact</span>
-                                </a>
-                            </li>
-                            <li class=" ">
-                                <a href="menu-sidebar.htm">
-                                    <span class="pcoded-mtext">Sidebar Fixed</span>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li>
-                    <li class=" pcoded-hasmenu">
-                        <a href="javascript:void(0)">
-                            <span class="pcoded-mtext">Horizontal</span>
-                        </a>
-                        <ul class="pcoded-submenu">
-                            <li class=" ">
-                                <a href="menu-horizontal-static.htm" target="_blank">
-                                    <span class="pcoded-mtext">Static Layout</span>
-                                </a>
-                            </li>
-                            <li class=" ">
-                                <a href="menu-horizontal-fixed.htm" target="_blank">
-                                    <span class="pcoded-mtext">Fixed layout</span>
-                                </a>
-                            </li>
-                            <li class=" ">
-                                <a href="menu-horizontal-icon.htm" target="_blank">
-                                    <span class="pcoded-mtext">Static With Icon</span>
-                                </a>
-                            </li>
-                            <li class=" ">
-                                <a href="menu-horizontal-icon-fixed.htm" target="_blank">
-                                    <span class="pcoded-mtext">Fixed With Icon</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class=" ">
-                        <a href="menu-bottom.htm">
-                            <span class="pcoded-mtext">Bottom Menu</span>
-                        </a>
-                    </li>
-                    <li class=" ">
-                        <a href="box-layout.htm" target="_blank">
-                            <span class="pcoded-mtext">Box Layout</span>
-                        </a>
-                    </li>
-                    <li class=" ">
-                        <a href="menu-rtl.htm" target="_blank">
-                            <span class="pcoded-mtext">RTL</span>
-                        </a>
-                    </li>
-                </ul>
             </li>
             <li class="">
+                <a href="{{ route('list.orders') }}">
+                    <span class="pcoded-micon"><i class="feather icon-shopping-cart"></i></span>
+                    <span class="pcoded-mtext">Đơn hàng</span>
+                </a>
+            </li>
+            @if (Auth::user()->isAdmin())
+            <li class="">
                 <a href="{{ route('list.categories') }}">
-                    <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
-                    <span class="pcoded-mtext">Manager Categories</span>
+                    <span class="pcoded-micon"><i class="icon-book-open"></i></span>
+                    <span class="pcoded-mtext">Danh mục sản phẩm</span>
                 </a>
             </li>
             <li class="">
                 <a href="{{ route('list.products') }}">
-                    <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
-                    <span class="pcoded-mtext">Manager Products</span>
+                    <span class="pcoded-micon"><i class="icon-bag"></i></span>
+                    <span class="pcoded-mtext">Sản phẩm</span>
                 </a>
             </li>
+            @endif
             <li class="">
                 <a href="{{ route('list.customers') }}">
-                    <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
-                    <span class="pcoded-mtext">Manager Customers</span>
+                    <span class="pcoded-micon"><i class="icon-people"></i></span>
+                    <span class="pcoded-mtext">Khách hàng</span>
                 </a>
             </li>
-            <li class="pcoded-hasmenu">
-                <a href="javascript:void(0)">
-                    <span class="pcoded-micon"><i class="feather icon-layers"></i></span>
-                    <span class="pcoded-mtext">Widget</span>
-                    <span class="pcoded-badge label label-danger">100+</span>
-                </a>
-                <ul class="pcoded-submenu">
-                    <li class=" ">
-                        <a href="widget-statistic.htm">
-                            <span class="pcoded-mtext">Statistic</span>
-                        </a>
-                    </li>
-                    <li class=" ">
-                        <a href="widget-data.htm">
-                            <span class="pcoded-mtext">Data</span>
-                        </a>
-                    </li>
-                    <li class=" ">
-                        <a href="widget-chart.htm">
-                            <span class="pcoded-mtext">Chart Widget</span>
-                        </a>
-                    </li>
-
-                </ul>
-            </li>
+            
+            
         </ul>
-        <div class="pcoded-navigatio-lavel">Manager Users</div>
+        @if (Auth::user()->isAdmin())
+        <div class="pcoded-navigatio-lavel">Nhân viên</div>
         <ul class="pcoded-item pcoded-left-item">
             <li class="pcoded-hasmenu">
                 <a href="javascript:void(0)">
-                    <span class="pcoded-micon"><i class="feather icon-users"></i></span>
-                    <span class="pcoded-mtext">Manager Users</span>
+                    <span class="pcoded-micon"><i class="icon-user-follow"></i></span>
+                    <span class="pcoded-mtext">Quản lý nhân viên</span>
                 </a>
                 <ul class="pcoded-submenu">
                     <li class=" ">
                         <a href="{{ route('list.users')}} ">
-                            <span class="pcoded-mtext">List Users</span>
+                            <span class="pcoded-mtext">Danh sách nhân viên</span>
                         </a>
                     </li>
                     <li class=" ">
                         <a href="{{route('list.roles')}}">
-                            <span class="pcoded-mtext">List Role</span>
+                            <span class="pcoded-mtext">Quyền</span>
                         </a>
                     </li>
                     <li class=" ">
@@ -177,5 +68,7 @@
             </li>
             
         </ul>
+        @endif
     </div>
 </nav>
+@endif
