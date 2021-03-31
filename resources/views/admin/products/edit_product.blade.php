@@ -54,27 +54,46 @@
 	                        <div class="col-sm-6">
 	                        	<label>Danh mục sản phẩm :</label>
 	                            <select class="form-control stock {{$errors->has('category_id') ? 'is-invalid' : '' }}" name="category_id" id="category_id">
+<<<<<<< HEAD
                                 	<option value="">---- Chọn danh mục ----</option>
 	                                @foreach($list_categories as $category)
 	                                	<option value="{{ $category->id }}" {{$product->category_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
 	                                @endforeach
 	                            </select>
+=======
+                                <option value="">---- Select Category ----</option>
+                                @foreach($list_categories as $category)
+                                	<option value="{{ $category->id }}" {{$product->category_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                                @endforeach
+                                </select>
+
+>>>>>>> b6eda45b7f3333d3a7917cf2b2f8aadaa5aa72ae
                             	@if($errors->has('category_id'))
 		                          <span class="messages" style="color: red;">{{$errors->first('category_id')}}</span>
 		                       @endif 
 	                        </div>
 	                    </div>
-	                    <div class="form-group row">
+	                     <div class="form-group row">
 	                        <div class="col-sm-6">
+<<<<<<< HEAD
 	                        	<label>Mã sản phẩm :</label>
 	                            <input type="text" name="code" id="code" class="form-control pamount {{$errors->has('code') ? 'is-invalid' : '' }}" value="{{ $product->code }}" placeholder="Nhập mã sản phẩm">
+=======
+	                        	<label>Code :</label>
+	                            <input type="text" name="code" id="code" class="form-control pamount {{$errors->has('code') ? 'is-invalid' : '' }}" value="{{ $category->code }}" placeholder="Enter Code">
+>>>>>>> b6eda45b7f3333d3a7917cf2b2f8aadaa5aa72ae
 	                            @if($errors->has('code'))
 		                          <span class="messages" style="color: red;">{{$errors->first('code')}}</span>
 		                      	@endif 
 	                        </div>
 	                        <div class="col-sm-6">
+<<<<<<< HEAD
 	                        	<label>Mô tả :</label>
 	                        	<input type="text" name="description" id="description" class="form-control pamount {{$errors->has('description') ? 'is-invalid' : '' }}" value="{{ $product->description }}" placeholder="Enter Description">
+=======
+	                        	<label>Description :</label>
+	                        	<input type="text" name="description" id="description" class="form-control pamount {{$errors->has('description') ? 'is-invalid' : '' }}" placeholder="Enter Description" value="{{ $category->description }}">
+>>>>>>> b6eda45b7f3333d3a7917cf2b2f8aadaa5aa72ae
 	                        	@if($errors->has('description'))
 		                          <span class="messages" style="color: red;">{{$errors->first('description')}}</span>
 		                      	@endif 
