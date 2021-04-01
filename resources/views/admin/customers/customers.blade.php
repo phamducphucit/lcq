@@ -49,7 +49,7 @@
 		                    <thead>
 		                    <tr>
 		                    	<th>Hình</th>
-		                        <th>Tên</th>
+		                        <th>Khách hàng</th>
 		                        <th>Điện thoại</th>
 		                        <th>Địa chỉ</th>
 		                        <th>Hành động</th>
@@ -59,9 +59,11 @@
 		                    	@foreach($list_customers as $customer)
 		                        <tr>
 		                            <td>
-		                            	<img src="/{{ $customer->image }}" style="width: 50px; height: 50px;">
+                                  <a href="/{{$customer->image}}" data-lightbox="{{ $customer->name }}" data-title="{{$customer->name}}">
+  		                            	<img src="/{{ $customer->image }}" style="width: 50px; height: 50px;">
+                                  </a>
 		                            </td>
-		                            <td>{{ $customer->name }}</td>
+		                            <td>{{ $customer->name }} <br/> <small><b>{{ $customer->phone }}</b></small> <br/> <small><i>{{ $customer->province->name }}</i></small></small></td>
 		                            <td>{{ $customer->phone }}</td>
 		                            <td>{{ $customer->adress }}</td>
 		                            
