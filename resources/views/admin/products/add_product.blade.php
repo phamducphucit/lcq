@@ -130,7 +130,7 @@
 	                        	<!--  -->
 	                        </div>
 	                        <div class="col-sm-6">
-	                        	<button type="submit" class="btn btn-primary" style="float: right;">Add New Product</button>
+	                        	<button type="submit" class="btn btn-primary" style="float: right;">Lưu lại</button>
 	                        </div>
 	                    </div>
 			        </div>
