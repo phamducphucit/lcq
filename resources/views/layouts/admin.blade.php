@@ -48,6 +48,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('..\files\assets\icon\icofont\css\icofont.css')}}">
     <!-- feather Awesome -->
     <link rel="stylesheet" type="text/css" href="{{ asset('..\files\assets\icon\feather\css\feather.css')}}">
+    <!-- light-box css -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('..\files\bower_components\ekko-lightbox\css\ekko-lightbox.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('..\files\bower_components\lightbox2\css\lightbox.css')}}">
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('..\files\assets\css\style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('..\files\assets\css\jquery.mCustomScrollbar.css') }}">
@@ -176,6 +179,9 @@
     <script src="{{ asset('..\files\assets\js\jquery.mCustomScrollbar.concat.min.js') }}"></script>
     <!-- <script type="text/javascript" src="{{ asset('..\files\assets\js\SmoothScroll.js') }}"></script> -->
     <script src="{{ asset('..\files\assets\js\pcoded.min.js') }}"></script>
+    <!-- light-box js -->
+    <script type="text/javascript" src="{{ asset('..\files\bower_components\ekko-lightbox\js\ekko-lightbox.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('..\files\bower_components\lightbox2\js\lightbox.js') }}"></script>
     <!-- custom js -->
     <script src="{{ asset('..\files\assets\js\vartical-layout.min.js') }}"></script>
     <!-- <script type="text/javascript" src="{{ asset('..\files\assets\pages\dashboard\custom-dashboard.js') }}"></script> -->

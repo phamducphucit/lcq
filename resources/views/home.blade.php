@@ -77,7 +77,9 @@
                                 <li class="" style="color: #bd4147;opacity: 0.8;">
                                     <div class="row m-b-2">
                                         <div class="col-auto p-r-0">
-                                            <img src="/{{ $samtuoi->image }}" alt="" class="img-fluid img-50">
+                                            <a href="{{$samtuoi->image}}" data-lightbox="{{ $samtuoi->name }}"  data-title="{{$samtuoi->name}}">
+                                                <img src="/{{ $samtuoi->image }}" alt="" class="img-fluid img-50">
+                                            </a>
                                         </div>
                                         <div class="col">
                                             <h6><strong><small>{{$samtuoi->code}}</small> - {{$samtuoi->name}}</strong></h6>
@@ -89,7 +91,9 @@
                                 <li class="" style="color: green">
                                     <div class="row m-b-2">
                                         <div class="col-auto p-r-0">
-                                            <img src="/{{ $samtuoi->image }}" alt="" class="img-fluid img-50">
+                                            <a href="{{$samtuoi->image}}" data-lightbox="{{ $samtuoi->name }}"  data-title="{{$samtuoi->name}}">
+                                                <img src="/{{ $samtuoi->image }}" alt="" class="img-fluid img-50">
+                                            </a>
                                         </div>
                                         <div class="col">
                                             <h6><strong><small>{{$samtuoi->code}}</small> - {{$samtuoi->name}}</strong></h6>
@@ -110,7 +114,9 @@
                                 <li class="" style="color: #bd4147;opacity: 0.8;">
                                     <div class="row m-b-2">
                                         <div class="col-auto p-r-0">
-                                            <img src="/{{ $samtroc->image }}" alt="" class="img-fluid img-50">
+                                            <a href="{{$samtroc->image}}" data-lightbox="{{ $samtroc->name }}"  data-title="{{$samtroc->name}}">
+                                                <img src="/{{ $samtroc->image }}" alt="" class="img-fluid img-50">
+                                            </a>
                                         </div>
                                         <div class="col">
                                             <h6><strong><small>{{$samtroc->code}}</small> - {{$samtroc->name}}</strong></h6>
@@ -122,7 +128,9 @@
                                 <li class="" style="color: green">
                                     <div class="row m-b-2">
                                         <div class="col-auto p-r-0">
-                                            <img src="/{{ $samtroc->image }}" alt="" class="img-fluid img-50">
+                                            <a href="{{$samtroc->image}}" data-lightbox="{{ $samtroc->name }}"  data-title="{{$samtroc->name}}">
+                                                <img src="/{{ $samtroc->image }}" alt="" class="img-fluid img-50">
+                                            </a>
                                         </div>
                                         <div class="col">
                                             <h6><strong><small>{{$samtroc->code}}</small> - {{$samtroc->name}}</strong></h6>
@@ -143,7 +151,9 @@
                                 <li class="" style="color: #bd4147;opacity: 0.8;">
                                     <div class="row m-b-2">
                                         <div class="col-auto p-r-0">
-                                            <img src="/{{ $samkho->image }}" alt="" class="img-fluid img-50">
+                                            <a href="{{$samkho->image}}" data-lightbox="{{ $samkho->name }}"  data-title="{{$samkho->name}}">
+                                                <img src="/{{ $samkho->image }}" alt="" class="img-fluid img-50">
+                                            </a>
                                         </div>
                                         <div class="col">
                                             <h6><strong><small>{{$samkho->code}}</small> - {{$samkho->name}}</strong></h6>
@@ -155,7 +165,9 @@
                                 <li class="" style="color: green">
                                     <div class="row m-b-2">
                                         <div class="col-auto p-r-0">
-                                            <img src="/{{ $samkho->image }}" alt="" class="img-fluid img-50">
+                                            <a href="{{$samkho->image}}" data-lightbox="{{ $samkho->name }}"  data-title="{{$samkho->name}}">
+                                                <img src="/{{ $samkho->image }}" alt="" class="img-fluid img-50">
+                                            </a>
                                         </div>
                                         <div class="col">
                                             <h6><strong><small>{{$samkho->code}}</small> - {{$samkho->name}}</strong></h6>
@@ -176,7 +188,9 @@
                                 <li class="" style="color: #bd4147;opacity: 0.8;">
                                     <div class="row m-b-2">
                                         <div class="col-auto p-r-0">
-                                            <img src="/{{ $samnuoc->image }}" alt="" class="img-fluid img-50">
+                                            <a href="{{$samnuoc->image}}" data-lightbox="{{ $samnuoc->name }}"  data-title="{{$samnuoc->name}}">
+                                                <img src="/{{ $samnuoc->image }}" alt="" class="img-fluid img-50">
+                                            </a>
                                         </div>
                                         <div class="col">
                                             <h6><strong><small>{{$samnuoc->code}}</small> - {{$samnuoc->name}}</strong></h6>
@@ -188,7 +202,9 @@
                                 <li class="" style="color: green">
                                     <div class="row m-b-2">
                                         <div class="col-auto p-r-0">
-                                            <img src="/{{ $samnuoc->image }}" alt="" class="img-fluid img-50">
+                                            <a href="{{$samnuoc->image}}" data-lightbox="{{ $samnuoc->name }}"  data-title="{{$samnuoc->name}}">
+                                                <img src="/{{ $samnuoc->image }}" alt="" class="img-fluid img-50">
+                                            </a>
                                         </div>
                                         <div class="col">
                                             <h6><strong><small>{{$samnuoc->code}}</small> - {{$samnuoc->name}}</strong></h6>
@@ -209,7 +225,9 @@
                                 <li class="" style="color: #bd4147;opacity: 0.8;">
                                     <div class="row m-b-2">
                                         <div class="col-auto p-r-0">
-                                            <img src="/{{ $nam->image }}" alt="" class="img-fluid img-50">
+                                            <a href="{{$nam->image}}" data-lightbox="{{ $nam->name }}"  data-title="{{$nam->name}}">
+                                                <img src="/{{ $nam->image }}" alt="" class="img-fluid img-50">
+                                            </a>
                                         </div>
                                         <div class="col">
                                             <h6><strong><small>{{$nam->code}}</small> - {{$nam->name}}</strong></h6>
@@ -221,7 +239,9 @@
                                 <li class="" style="color: green">
                                     <div class="row m-b-2">
                                         <div class="col-auto p-r-0">
-                                            <img src="/{{ $nam->image }}" alt="" class="img-fluid img-50">
+                                            <a href="{{$nam->image}}" data-lightbox="{{ $nam->name }}"  data-title="{{$nam->name}}">
+                                                <img src="/{{ $nam->image }}" alt="" class="img-fluid img-50">
+                                            </a>
                                         </div>
                                         <div class="col">
                                             <h6><strong><small>{{$nam->code}}</small> - {{$nam->name}}</strong></h6>
@@ -242,7 +262,9 @@
                                 <li class="" style="color: #bd4147;opacity: 0.8;">
                                     <div class="row m-b-2">
                                         <div class="col-auto p-r-0">
-                                            <img src="/{{ $thucpham->image }}" alt="" class="img-fluid img-50">
+                                            <a href="{{$thucpham->image}}" data-lightbox="{{ $thucpham->name }}"  data-title="{{$thucpham->name}}">
+                                                <img src="/{{ $thucpham->image }}" alt="" class="img-fluid img-50">
+                                            </a>
                                         </div>
                                         <div class="col">
                                             <h6><strong><small>{{$thucpham->code}}</small> - {{$thucpham->name}}</strong></h6>
@@ -254,7 +276,9 @@
                                 <li class="" style="color: green">
                                     <div class="row m-b-2">
                                         <div class="col-auto p-r-0">
-                                            <img src="/{{ $thucpham->image }}" alt="" class="img-fluid img-50">
+                                            <a href="{{$thucpham->image}}" data-lightbox="{{ $thucpham->name }}"  data-title="{{$thucpham->name}}">
+                                                <img src="/{{ $thucpham->image }}" alt="" class="img-fluid img-50">
+                                            </a>
                                         </div>
                                         <div class="col">
                                             <h6><strong><small>{{$thucpham->code}}</small> - {{$thucpham->name}}</strong></h6>
