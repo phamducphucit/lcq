@@ -77,7 +77,9 @@
                                     <h6 class="text-white m-b-0">{{ number_format($product->price) }} Vnđ</h6>
                                 </div>
                                 <div class="col-4 text-right">
-                                    <img src="/{{ $product->image }}" style="width: 65px;height: 65px">
+                                    <a href="/{{$product->image}}" data-lightbox="{{ $product->name }}" data-title="{{$product->name}}">
+                                        <img src="/{{ $product->image }}" style="width: 65px;height: 65px">
+                                    </a>
                                 </div>
                             </div>
                         </div>
