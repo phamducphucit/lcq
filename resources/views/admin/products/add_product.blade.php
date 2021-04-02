@@ -59,7 +59,7 @@
 
 	                        <div class="col-sm-6">
 	                        	<label>Tên sản phẩm :</label>
-	                           <input type="text" name="name" id="name" class="form-control pname {{$errors->has('name') ? 'is-invalid' : '' }}" placeholder="Nhập tên sản phẩm">
+	                           <input type="text" name="name" id="name" class="form-control pname {{$errors->has('name') ? 'is-invalid' : '' }}" value="{{ old('name') }}" placeholder="Nhập tên sản phẩm">
 	                           @if($errors->has('name'))
 		                          <span class="messages" style="color: red;">{{$errors->first('name')}}</span>
 		                       @endif 
@@ -69,14 +69,14 @@
 	                    <div class="form-group row">
 	                        <div class="col-sm-6">
 	                        	<label>Mã sản phẩm :</label>
-	                            <input type="text" name="code" id="code" class="form-control pamount {{$errors->has('code') ? 'is-invalid' : '' }}" placeholder="Nhập mã sản phẩm">
+	                            <input type="text" name="code" id="code" class="form-control pamount {{$errors->has('code') ? 'is-invalid' : '' }}" value="{{ old('code') }}" placeholder="Nhập mã sản phẩm">
 	                            @if($errors->has('code'))
 		                          <span class="messages" style="color: red;">{{$errors->first('code')}}</span>
 		                      	@endif 
 	                        </div>
 	                        <div class="col-sm-6">
 	                        	<label>Mô tả :</label>
-	                        	<input type="text" name="description" id="description" class="form-control pamount {{$errors->has('description') ? 'is-invalid' : '' }}" placeholder="Nhập mô tả">
+	                        	<input type="text" name="description" id="description" class="form-control pamount {{$errors->has('description') ? 'is-invalid' : '' }}" value="{{ old('description') }}" placeholder="Nhập mô tả">
 	                        	@if($errors->has('description'))
 		                          <span class="messages" style="color: red;">{{$errors->first('description')}}</span>
 		                      	@endif 
@@ -86,14 +86,14 @@
 	                    <div class="form-group row">
 	                        <div class="col-sm-6">
 	                        	<label>Giá :</label>
-	                            <input type="text" name="price" id="price" class="form-control pamount {{$errors->has('price') ? 'is-invalid' : '' }}" placeholder="Nhập giá sản phẩm">
+	                            <input type="text" name="price" id="price" class="form-control pamount {{$errors->has('price') ? 'is-invalid' : '' }}" value="{{ old('price') }}" placeholder="Nhập giá sản phẩm">
 	                            @if($errors->has('price'))
 		                          <span class="messages" style="color: red;">{{$errors->first('price')}}</span>
 		                      	@endif 
 	                        </div>
 	                        <div class="col-sm-6">
 	                        	<label>Số lượng :</label>
-	                        	<input type="text" name="quantity" id="quantity" class="form-control pamount {{$errors->has('quantity') ? 'is-invalid' : '' }}" placeholder="Nhập số lượng">
+	                        	<input type="text" name="quantity" id="quantity" class="form-control pamount {{$errors->has('quantity') ? 'is-invalid' : '' }}" value="{{ old('quantity') }}" placeholder="Nhập số lượng">
 	                        	@if($errors->has('quantity'))
 		                          <span class="messages" style="color: red;">{{$errors->first('quantity')}}</span>
 		                      	@endif 

@@ -162,9 +162,6 @@ class CustomerController extends Controller
             $destinationPath = public_path('/img_customers');
             $request->file('image')->move($destinationPath, $image_name);
             $customer->image = $image_name;
-        }else{
-            $image_name = 'img_customers/no-image.png';
-            $customer->image = $image_name;
         }
 
         $customer->save();

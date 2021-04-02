@@ -157,9 +157,6 @@ class ProductController extends Controller
             $destinationPath = public_path('/img_products');
             $request->file('image')->move($destinationPath, $image_name);
             $product->image = $image_name;
-        }else{
-            $image_name = 'img_products/no-image.png';
-            $product->image = $image_name;
         }
 
         $product->save();

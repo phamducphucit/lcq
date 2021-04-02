@@ -114,12 +114,14 @@
 	                        </div>
 	                        <div class="col-sm-6">
 	                        	<label>Hình sản phẩm :</label>
+	                        	<img src="/{{ $product->image }}" width="150px;" />
 	                        	<div class="input-group">
+
 		                            <input type="file" name="image" class="form-control pname {{ $errors->has('image') ? 'is-invalid' : '' }}" placeholder="Prodcut Name">
 		                            @if($errors->has('image'))
 			                          <span class="messages" style="color: red;">{{$errors->first('image')}}</span>
 			                      	@endif 
-		                            <span class="input-group-addon btn btn-primary">Chọn hình</span>
+		                            <span class="input-group-addon btn btn-primary">Chọn hình khác</span>
 		                            
 	                        	</div>
 	                    	</div>
