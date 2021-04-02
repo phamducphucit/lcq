@@ -43,6 +43,6 @@ class HomeController extends Controller
         //Thực phẩm chức năng ID_Categỏy = 5
         $list_thucpham = ProductModel::where("category_id", "=", 6)->get();
 
-        return view('home', compact('count_order','count_product','count_customer', 'list_samtuoi', 'list_samtroc', 'list_samkho', 'list_samnuoc', 'list_nam', 'list_thucpham'));
+        return view('home', compact('count_order','count_product','count_customer', 'list_samtuoi', 'list_samtroc', 'list_samkho', 'list_samnuoc', 'list_nam', 'list_thucpham', 'list_samgay'));
     }
 }
