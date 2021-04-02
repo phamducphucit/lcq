@@ -94,6 +94,7 @@ class OrdersController extends Controller
             OrderDetail::insert($orderProducts);
 
         });
+        return redirect()->route('list.orders');
     }
 
     /**
