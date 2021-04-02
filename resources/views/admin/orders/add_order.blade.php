@@ -177,9 +177,7 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $(document).ready(function() {
-            $(".js-example-basic-single1").select2();
-        });
+        $(".js-example-basic-single1").select2();
     });
 
     function getProducts1(){
