@@ -204,6 +204,12 @@
     <script type="text/javascript" src="{{ asset('..\files\assets\js\jquery.quicksearch.js')}}"></script>
 <!-- Switch component js -->
     <script type="text/javascript" src="{{ asset('..\files\bower_components\switchery\js\switchery.min.js')}}"></script>
+    <!-- Masking js -->
+    <script src="{{ asset('..\files\assets\pages\form-masking\inputmask.js')}}"></script>
+    <script src="{{ asset('..\files\assets\pages\form-masking\jquery.inputmask.js')}}"></script>
+    <script src="{{ asset('..\files\assets\pages\form-masking\autoNumeric.js')}}"></script>
+    <script src="{{ asset('..\files\assets\pages\form-masking\form-mask.js')}}"></script>
+
     <!-- Custom js -->
 
     <script src="{{ asset('..\files\assets\pages\forms-wizard-validation\form-wizard.js')}}"></script>

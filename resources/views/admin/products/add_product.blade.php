@@ -86,7 +86,7 @@
 	                    <div class="form-group row">
 	                        <div class="col-sm-6">
 	                        	<label>Giá :</label>
-	                            <input type="text" name="price" id="price" class="form-control pamount {{$errors->has('price') ? 'is-invalid' : '' }}" value="{{ old('price') }}" placeholder="Nhập giá sản phẩm">
+	                            <input type="text" name="price" id="price" class="form-control autonumber" data-a-sep="." data-a-dec="," value="{{ old('price') }}" placeholder="Nhập giá sản phẩm">
 	                            @if($errors->has('price'))
 		                          <span class="messages" style="color: red;">{{$errors->first('price')}}</span>
 		                      	@endif 
@@ -139,9 +139,6 @@
 		    <!-- Input Validation card end -->        	
         </div>
     </div>
-
-
-    
 
 
 @endsection
