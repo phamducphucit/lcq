@@ -144,6 +144,43 @@
                     </div>
 
                     <div class="col-md-12 col-lg-4">
+                        <h6 class="sub-title"><label class="label  label-info">SÂM GÃY</label></h6>
+                        <ul class="basic-list">
+                            @foreach($list_samgay as $samgay)
+                                @if($samgay->quantity <= 0) 
+                                <li class="" style="color: #bd4147;opacity: 0.8;">
+                                    <div class="row m-b-2">
+                                        <div class="col-auto p-r-0">
+                                            <a href="{{$samgay->image}}" data-lightbox="{{ $samgay->name }}"  data-title="{{$samgay->name}}">
+                                                <img src="/{{ $samgay->image }}" alt="" class="img-fluid img-50">
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <h6><strong><small>{{$samgay->code}}</small> - {{$samgay->name}}</strong></h6>
+                                            <p><i>Số lượng trong kho: <b>{{$samgay->quantity}}</b> {{$samgay->donvi}}</i></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                @else 
+                                <li class="" style="color: green">
+                                    <div class="row m-b-2">
+                                        <div class="col-auto p-r-0">
+                                            <a href="{{$samgay->image}}" data-lightbox="{{ $samgay->name }}"  data-title="{{$samgay->name}}">
+                                                <img src="/{{ $samgay->image }}" alt="" class="img-fluid img-50">
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <h6><strong><small>{{$samgay->code}}</small> - {{$samgay->name}}</strong></h6>
+                                            <p><i>Số lượng trong kho: <b>{{$samgay->quantity}}</b> {{$samgay->donvi}}</i></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
+
+                    <div class="col-md-12 col-lg-4">
                         <h6 class="sub-title"><label class="label  label-info">SÂM KHÔ</label></h6>
                         <ul class="basic-list">
                             @foreach($list_samkho as $samkho)

@@ -32,6 +32,8 @@ class HomeController extends Controller
         $list_samtuoi = ProductModel::where("category_id", "=", 1)->get();
         //Sâm troc ID_Categỏy = 2
         $list_samtroc = ProductModel::where("category_id", "=", 2)->get();
+        //Sâm troc ID_Categỏy = 2
+        $list_samgay = ProductModel::where("category_id", "=", 7)->get();
         //Sâm kho ID_Categỏy = 3
         $list_samkho = ProductModel::where("category_id", "=", 3)->get();
         //Sâm nuoc ID_Categỏy = 4
