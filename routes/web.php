@@ -105,6 +105,7 @@ Route::group(['middleware'=>'auth'], function (){
 		Route::get('/edit-order/{id}', [OrdersController::class, 'edit'])->name('edit.order');
 		Route::post('/edit-order/{id}', [OrdersController::class, 'update'])->name('update.order.post');
 		Route::get('/delete-order/{id}', [OrdersController::class, 'destroy'])->name('delete.order');
+		Route::get('/show-order/{id}', [OrdersController::class, 'show'])->name('show.order');
 	});
 
 });

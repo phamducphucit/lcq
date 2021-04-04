@@ -77,7 +77,7 @@
                 <div class="col-sm-6">
                     <div class="card card-border-{{$color}}">
                         <div class="card-header">
-                            <a href="#">
+                            <a href="#" onclick="showOrderDetail({{$order->id}})">
                                 <label class="label label-inverse-{{$color}}">Mã đơn #: &nbsp;{{$order->id}} </label>
                             </a>
                             <!-- <span class="label label-default f-right"> 28 January, 2015 </span> -->
@@ -158,7 +158,7 @@
     </div>
 @endsection
 
-<div class="modal fade" id="myModal" role="dialog">
+<div class="modal fade" id="myModalCustomer" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -171,8 +171,63 @@
            <u>Số điện thoại</u> : <b><span id="phone"></span></b> <br/>
            <u>Địa chỉ</u> : <b><span id="address"></span></b> <br/>
            <u>Gửi xe</u> : <b><span id="transport"></span></b> <br/>
+
         </div>
         <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModalOrder" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h4 class="modal-title" id="divID">THÔNG TIN ĐƠN HÀNG</h4>
+          <button type="button" class="close" data-dismiss="modal" title="Đóng">&times;</button>
+        </div>
+        <form action="" method="post" id="orderdata">
+            <div class="modal-body">
+               <input type="hidden" id="order_id" name="order_id" value="">
+               <u>Tên khách hàng</u> : <b><span id="name_customer"></span></b> <br/>
+               <u>Tên người nhận</u> : <b><span id="name_receiver"></span></b> <br/>
+               <u>Số điện thoại</u> : <b><span id="phone_receiver"></span></b> <br/>
+               <u>Địa chỉ</u> : <b><span id="address_receiver"></span></b> <br/>
+               <u>Gửi xe</u> : <b><span id="transport"></span></b> <br/>
+               <u>Ghi chú</u> : <b><span id="note"></span></b> <br/>
+               <u>Thông tin sản phẩm</u> : <br/>
+                
+                <ul>
+                    <b><span id="products"></span></b> 
+                </ul>
+                <br/>
+                <b><span id="nguoitracuoc"></span></b> 
+                <br/>
+                <br/>
+                <div class="input-group mb-3">
+                    <label>Thu cod: </label>
+                    <input type="text" name="cod" class="form-control" id="cod" placeholder="Nhập tiền thu COD">
+                </div>
+                <div class="input-group mb-3">
+                    <label>Phí ship: </label>
+                    <input type="text" name="money_ship" class="form-control" id="money_ship" placeholder="Nhập tiền thu COD">
+                </div>
+                
+                <div class="input-group mb-3">
+                    <label>Trạng thái: </label>
+                    <select class="form-control" id="statusselect">
+                        <option value="1"> Đang chờ </option>
+                        <option value="4"> Đã giao </option>
+                        <option value="5"> Hủy </option>
+                    </select>
+                </div>
+
+            </div>
+        </form>
+        <div class="modal-footer">
+            <button type="submit" id="submit" class="btn btn-primary">Lưu lại</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
         </div>
       </div>
@@ -187,7 +242,41 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.29.2/sweetalert2.all.js"></script>
 <script>
-   function deleteProduct(id){
+    $(document).ready(function () {
+        $('body').on('click', '#submit', function (event) {
+            event.preventDefault()
+            var order_id = $("#order_id").val();
+            var cod = $("#cod").val();
+            var money_ship = $("#money_ship").val();
+            var status = document.getElementById("statusselect").value;
+            $.ajaxSetup({
+              headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+            });
+
+            $.ajax({
+              url: '/order/edit-order/' + order_id,
+              type: "POST",
+              data: {
+                id: order_id,
+                cod: cod,
+                money_ship: money_ship,
+                status: status,
+              },
+              dataType: 'json',
+              success: function (data) {
+                  console.log(data);
+                  $('#orderdata').trigger("reset");
+                  $('#myModalOrder').modal('hide');
+                  window.location.reload(true);
+              }
+            });
+        });
+    });
+
+
+    function deleteProduct(id){
          Swal.fire({
        title: 'Bạn có chắc chắn muốn xóa sản phẩm này không?',
        text: "Bạn sẽ không thể lấy lại sản phẩm này sau khi xóa.",
@@ -220,7 +309,7 @@
 
    function showCustomer(id_cus)
     {
-        $("#myModal").modal('show');
+        $("#myModalCustomer").modal('show');
 
         $.ajaxSetup({
           headers: {
@@ -238,7 +327,45 @@
                 $("#phone").html(data.phone);
                 $("#address").html(data.adress+', '+data.ward.name+', '+data.district.name+', '+data.province.name);
                 $("#transport").html(data.transport);
+
                 
+            },
+        });
+    }
+
+    function showOrderDetail(id_order)
+    {
+        $("#myModalOrder").modal('show');
+
+        $.ajaxSetup({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+        });
+        
+        // get price from Quickbook API
+        $.ajax({
+            url: "/order/show-order/"+id_order,
+            type: 'GET',
+            success: function (data) {
+                console.log(data);
+                $("#name_customer").html(data.customer.name);
+                $("#name_receiver").html(data.name_receiver);
+                $("#phone_receiver").html(data.phone_receiver);
+                $("#address_receiver").html(data.address_receiver);
+                $("#transport").html(data.customer.transport);
+                $("#note").html(data.note);
+                $("#products").html(data.products);
+                $("#nguoitracuoc").html(data.nguoitracuoc);
+                $("#statusselect").val(data.status);
+                $('#order_id').val(id_order);
+                $('#cod').val(data.cod);
+                $('#money_ship').val(data.money_ship);
+                if(data.status == 4 || data.status == 5){
+                    document.getElementById('statusselect').disabled = true;
+                } else {
+                    document.getElementById('statusselect').disabled = false;
+                }
             },
         });
     }

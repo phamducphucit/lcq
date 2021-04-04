@@ -106,6 +106,7 @@ class OrdersController extends Controller
     public function show($id)
     {
         //
+        return Orders::find($id);
     }
 
     /**
@@ -129,6 +130,14 @@ class OrdersController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $order = Orders::find($id);
+        $order->cod = $request->cod;
+        $order->money_ship = $request->money_ship;
+        if($request->status){
+            $order->status = $request->status;
+        }
+        $order->save();
+      return response()->json([ 'success' => true ]);
     }
 
     /**
