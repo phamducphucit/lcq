@@ -18,7 +18,6 @@ class CreateOrdersTable extends Migration
             $table->bigInteger('customer_id')->unsigned();
             $table->bigInteger('user_id_create')->unsigned();
             $table->bigInteger('user_id')->unsigned();
-            $table->foreign('customer_id')->references('id')->on('users');
             $table->string('name_receiver')->nullable();
             $table->string('address_receiver')->nullable();
             $table->string('phone_receiver')->nullable();
@@ -47,6 +46,8 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('orders');
+        Schema::enableForeignKeyConstraints();
     }
 }

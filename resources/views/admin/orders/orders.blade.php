@@ -77,11 +77,16 @@
                 <div class="col-sm-6">
                     <div class="card card-border-{{$color}}">
                         <div class="card-header">
-                            <h5>Mã đơn #: &nbsp;{{$order->id}} </h5>
+                            <a href="#">
+                                <label class="label label-inverse-{{$color}}">Mã đơn #: &nbsp;{{$order->id}} </label>
+                            </a>
                             <!-- <span class="label label-default f-right"> 28 January, 2015 </span> -->
                             <div class="dropdown-secondary dropdown f-right">
-                                <span class="f-left m-r-5 text-inverse">{{$order->name_receiver}} </span>
-                                
+                                <span class="f-left m-r-5 text-inverse">
+                                    <a href="#" onclick="showCustomer({{$order->customer_id}})">
+                                        <label class="label label-inverse">{{$order->name_receiver}}</label>
+                                    </a>
+                                </span>
                             </div>
                         </div>
                         <div class="card-block">
@@ -116,14 +121,12 @@
                                         @case(1)
                                             <strong class="label label-warning">Đang chờ</strong>
                                             @break
-
                                         @case(4)
                                             <strong class="label label-success">Đã giao</strong>
                                             @break
                                         @case(5)
                                             <strong class="label label-danger">Đã hủy</strong>
                                             @break
-
                                         @default
                                             
                                     @endswitch
@@ -131,7 +134,6 @@
                                 </p>
                             </div>
                             <div class="task-board m-0">
-                                <a href="invoice.htm" class="btn btn-info btn-mini b-none"><i class="icofont icofont-eye-alt m-0"></i></a>
                                 <!-- end of dropdown-secondary -->
                                 <div class="dropdown-secondary dropdown">
                                     <button class="btn btn-info btn-mini dropdown-toggle waves-light b-none txt-muted" type="button" id="dropdown14" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icofont icofont-navigation-menu"></i></button>
@@ -156,6 +158,23 @@
     </div>
 @endsection
 
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h4 class="modal-title" id="divID">THÔNG TIN KHÁCH HÀNG</h4>
+          <button type="button" class="close" data-dismiss="modal" title="Đóng">&times;</button>
+        </div>
+        <div class="modal-body">
+           Tên khách hàng : <span id="name_cus"></span>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+        </div>
+      </div>
+    </div>
+</div>
 <!-- @push('ajax_crud')
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
@@ -194,6 +213,28 @@
        location.reload();
      })
    }
+
+
+   function showCustomer(id_cus)
+    {
+        $("#myModal").modal('show');
+
+        $.ajaxSetup({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+        });
+        
+        // get price from Quickbook API
+        $.ajax({
+            url: "/customer/show-customer/"+id_cus,
+            type: 'GET',
+            success: function (data) {
+                console.log(data);
+                $("#name_cus").html(data.name);
+            },
+        });
+    }
 </script>
 
 

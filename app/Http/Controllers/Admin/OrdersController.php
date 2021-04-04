@@ -60,7 +60,7 @@ class OrdersController extends Controller
             $order = new Orders;
             $order->user_id_create = auth()->user()->id;
             $order->user_id = auth()->user()->id;
-            $order->customer_id = auth()->user()->id;
+            $order->customer_id = $request->input('customer_id');
             $order->name_receiver = $request->input('name_receiver');
             $order->address_receiver = $request->input('address_receiver');
             $order->phone_receiver = $request->input('phone_receiver');
