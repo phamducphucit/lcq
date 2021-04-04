@@ -167,7 +167,10 @@
           <button type="button" class="close" data-dismiss="modal" title="Đóng">&times;</button>
         </div>
         <div class="modal-body">
-           Tên khách hàng : <span id="name_cus"></span>
+           <u>Tên khách hàng</u> : <b><span id="name_cus"></span></b> <br/>
+           <u>Số điện thoại</u> : <b><span id="phone"></span></b> <br/>
+           <u>Địa chỉ</u> : <b><span id="address"></span></b> <br/>
+           <u>Gửi xe</u> : <b><span id="transport"></span></b> <br/>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
@@ -232,6 +235,10 @@
             success: function (data) {
                 console.log(data);
                 $("#name_cus").html(data.name);
+                $("#phone").html(data.phone);
+                $("#address").html(data.adress+', '+data.ward.name+', '+data.district.name+', '+data.province.name);
+                $("#transport").html(data.transport);
+                
             },
         });
     }
