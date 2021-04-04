@@ -134,19 +134,8 @@
                                 </p>
                             </div>
                             <div class="task-board m-0">
-                                <!-- end of dropdown-secondary -->
-                                <div class="dropdown-secondary dropdown">
-                                    <button class="btn btn-info btn-mini dropdown-toggle waves-light b-none txt-muted" type="button" id="dropdown14" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icofont icofont-navigation-menu"></i></button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdown14" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                                        <a class="dropdown-item waves-light waves-effect" href="#!"><i class="icofont icofont-ui-alarm"></i> Print Invoice</a>
-                                        <a class="dropdown-item waves-light waves-effect" href="#!"><i class="icofont icofont-attachment"></i> Download invoice</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item waves-light waves-effect" href="#!"><i class="icofont icofont-spinner-alt-5"></i> Edit Invoice</a>
-                                        <a class="dropdown-item waves-light waves-effect" href="#!"><i class="icofont icofont-ui-edit"></i> Remove Invoice</a>
-                                    </div>
-                                    <!-- end of dropdown menu -->
-                                </div>
-                                <!-- end of seconadary -->
+                                <a href="#" class="btn btn-info btn-mini b-none"><i class="icofont icofont-attachment"> Print</i></a>
+                                
                             </div>
                             <!-- end of pull-right class -->
                         </div>
