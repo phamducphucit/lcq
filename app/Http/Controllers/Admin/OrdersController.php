@@ -22,9 +22,9 @@ class OrdersController extends Controller
         //
         
         if(auth()->user()->isAdmin()){
-            $list_orders = Orders::all();
+            $list_orders = Orders::orderBy('id', 'DESC')->get();
         }else{
-            $list_orders = Orders::where("user_id", "=", auth()->user()->id)->get();
+            $list_orders = Orders::where("user_id", "=", auth()->user()->id)->orderBy('id', 'DESC')->get();
         }
         return view('admin.orders.orders', compact('list_orders'));
     }
