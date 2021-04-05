@@ -46,8 +46,6 @@
                           <label class="control-label">Mã đơn hàng</label>
                           <input type="text" name="key_search" id="key_search" class="form-control" value="{{ $key_search }}" placeholder="Mã đơn hàng...">
 
-                          <label class="control-label">Số đt khách</label>
-                          <input type="text" name="key_search" id="phone_search" class="form-control" value="" placeholder="Số đt khách...">
                       </div>
                   </div>
                   <div class="col-md-4 d-flex align-items-center">
