@@ -83,7 +83,7 @@
                             <!-- <span class="label label-default f-right"> 28 January, 2015 </span> -->
                             <div class="dropdown-secondary dropdown f-right">
                                 <span class="f-left m-r-5 text-inverse">
-                                    <a href="#" onclick="showCustomer({{$order->customer_id}})">
+                                    <a href="#!" onclick="showCustomer({{$order->customer_id}})">
                                         <label class="label label-inverse">{{$order->name_receiver}}</label>
                                     </a>
                                 </span>
