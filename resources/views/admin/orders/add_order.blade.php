@@ -121,7 +121,7 @@
                                                         <div class="col-sm-12">
                                                             <div class="form-group">
                                                                 <label class="control-label">Ghi chú</label>
-                                                                <textarea class="form-control" id="w3review" name="w3review" rows="2" cols="50">
+                                                                <textarea class="form-control" id="note" name="note" rows="2" cols="100">
                                                                 </textarea>
                                                             </div>
                                                         </div>
