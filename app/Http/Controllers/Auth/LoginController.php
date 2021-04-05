@@ -56,7 +56,7 @@ class LoginController extends Controller
             return redirect()->route('home');
         }else{
             return redirect()->route('login')
-                ->with('error','Email-Address And Password Are Wrong.');
+                ->with('error','Tên đăng nhập hoặc mật khẩu sai.');
         }
           
     }
