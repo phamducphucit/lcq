@@ -77,8 +77,8 @@
                 <div class="col-sm-6">
                     <div class="card card-border-{{$color}}">
                         <div class="card-header">
-                            <a href="#" onclick="showOrderDetail({{$order->id}})">
-                                <label class="label label-inverse-{{$color}}">Mã đơn #: &nbsp;{{$order->id}} </label>
+                            <a href="#!" onclick="showOrderDetail({{$order->id}})">
+                                <label class="label label-inverse-{{$color}}">Mã đơn: #&nbsp;{{$order->id}} </label>
                             </a>
                             <!-- <span class="label label-default f-right"> 28 January, 2015 </span> -->
                             <div class="dropdown-secondary dropdown f-right">
