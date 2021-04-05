@@ -201,8 +201,8 @@
                 <br/>
                 <br/>
                 <div class="input-group mb-3">
-                    <label>Thu cod: </label>
-                    <input type="text" name="cod" class="form-control" id="cod" placeholder="Nhập tiền thu COD">
+                    <label style="width: 50%">Thu cod: </label>
+                    <input style="width: 50%" type="text" name="cod" class="form-control" id="cod" placeholder="Nhập tiền thu COD">
                 </div>
                 <div class="input-group mb-3">
                     <label>Phí ship ra bến xe: </label>
