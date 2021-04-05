@@ -49,9 +49,8 @@
                   </div>
                   <div class="col-md-4 d-flex align-items-center">
                       <button type="submit" class="btn btn-info m-r-5"><i class="ti-search"></i> Tìm kiếm</button>
-                  </div>
-                  <div class="col-md-4">
-                          <a href="{{ route('add.order') }}" title="Tạo đơn hàng mới" class="btn btn-sm btn-primary">
+
+                      <a href="{{ route('add.order') }}" title="Tạo đơn hàng mới" class="btn btn-sm btn-primary">
                               <i class="icofont icofont-plus"></i> Tạo đơn hàng mới
                           </a>
                   </div>
