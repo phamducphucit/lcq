@@ -50,7 +50,7 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
             
-        $remember_me = $request->has('remember_me') ? true : false;
+        $remember_me = $request->has('remember') ? true : false;
 
         $fieldType = filter_var($request->user_name, FILTER_VALIDATE_EMAIL) ? 'email' : 'user_name';
         if(auth()->attempt(array($fieldType => $input['user_name'], 'password' => $input['password']),$remember_me))
