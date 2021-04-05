@@ -205,7 +205,7 @@
                     <input type="text" name="cod" class="form-control" id="cod" placeholder="Nhập tiền thu COD">
                 </div>
                 <div class="input-group mb-3">
-                    <label>Phí ship: </label>
+                    <label>Phí ship ra bến xe: </label>
                     <input type="text" name="money_ship" class="form-control" id="money_ship" placeholder="Nhập tiền thu COD">
                 </div>
                 
