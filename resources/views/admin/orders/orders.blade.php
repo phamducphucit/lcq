@@ -102,19 +102,10 @@
                                     <ul class="list list-unstyled text-right">
                                         <li><i>{{ date('d/m/Y', strtotime($order->order_date)) }}</i></li>
                                         <li>
-                                            @if($order->person_pay_shipping == 1)         
-                                                  <span class="text-semibold"><b><i>Khách trả cước ship</i></b></span>    
-                                            @else
-                                                  <span class="text-semibold"><b><i>Bao cước ship</i></b></span>  
-                                            @endif
-                                            
+                                            <span class="text-semibold"><b><i>{{$order->nguoitracuoc}}</i></b></span> 
                                         </li>
                                         <li>
-                                            @if($order->person_pay_shipping_to_station == 1)         
-                                                  <span class="text-semibold"><b><i>Khách trả cước ra bến xe</i></b></span>    
-                                            @else
-                                                  <span class="text-semibold"><b><i>Bao cước ra bến xe</i></b></span>  
-                                            @endif
+                                            <span class="text-semibold"><b><i>{{$order->nguoitracuocrabenxe}}</i></b></span> 
                                         </li>
                                         @if($order->note)
                                             <li><span style="color: #fe9365;"><i>{{$order->note}}</i></span></li>
@@ -209,14 +200,20 @@
                 <br/>
                 <b><span id="nguoitracuoc"></span></b> 
                 <br/>
+                <b><span id="nguoitracuocrabenxe"></span></b> 
+                <br/>
                 <br/>
                 <div class="input-group mb-3">
-                    <label style="width: 50%">Thu cod: </label>
+                    <label style="width: 50%">Thu COD: </label>
                     <input style="width: 50%" type="text" name="cod" class="form-control" id="cod" placeholder="Nhập tiền thu COD">
                 </div>
                 <div class="input-group mb-3">
-                    <label style="width: 50%">Phí ship ra bến xe: </label>
-                    <input style="width: 38%" type="text" name="money_ship" class="form-control" id="money_ship" placeholder="Nhập tiền thu COD"> Vnđ
+                    <label style="width: 50%">Cước ship: </label>
+                    <input style="width: 38%" type="text" name="money_ship" class="form-control" id="money_ship" placeholder="Nhập tiền ship"> Vnđ
+                </div>
+                <div class="input-group mb-3">
+                    <label style="width: 50%">Cước ra bến xe: </label>
+                    <input style="width: 38%" type="text" name="fee_to_station" class="form-control" id="fee_to_station" placeholder="Nhập cước ra bến xe"> Vnđ
                 </div>
                 
                 <div class="input-group mb-3">

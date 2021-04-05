@@ -12,7 +12,7 @@ class Orders extends Model
     //
     protected $table = 'orders';
 
-    protected  $appends = ['customer','products', 'nguoitracuoc'];
+    protected  $appends = ['customer','products', 'nguoitracuoc', 'nguoitracuocrabenxe'];
 
     public function getCustomerAttribute()
     {
@@ -42,9 +42,19 @@ class Orders extends Model
     {
         if($this->attributes['person_pay_shipping'] == 1)
         {
-        	return "Khách trả cước ship";
+        	return "Khách trả ship";
         }else{
-            return "Bao cước ship";
+            return "Bao ship";
+        }
+    }
+
+    public function getNguoitracuocrabenxeAttribute()
+    {
+        if($this->attributes['person_pay_shipping_to_station'] == 1)
+        {
+            return "Khách trả cước ra bến xe";
+        }else{
+            return "Bao cước ra bến xep";
         }
     }
 }
