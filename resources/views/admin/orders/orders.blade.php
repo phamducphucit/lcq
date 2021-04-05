@@ -23,43 +23,35 @@
     <!-- Page-header end -->
     <div class="row">
         <div class="col-sm-12 filter-bar">
-        	<nav class="navbar navbar-light bg-faded m-b-30 p-10">
-                                                    <ul class="nav navbar-nav">
-                                                        <li class="nav-item active">
-                                                            <a class="nav-link" href="#!"><span class="sr-only">(current)</span></a>
-                                                        </li>
-                                                        
-                                                        <!-- end of by date dropdown -->
-                                                        <form action="{{ route('list.orders') }}" method="GET">
-                                                          <li class="nav-item dropdown">
-                                                              <select class="selectpicker form-control" name="status_id" data-style="form-control btn-secondary">
-                                                                  <option value="" {{ ($status_id == '') ? 'selected' : '' }}> -- Trạng thái đơn hàng -- </option>
-                                                                  
-                                                                      <option value="1" {{ ($status_id == 1) ? 'selected' : '' }}> Đang chờ <span></span></option>
+        	 <form action="{{ route('list.orders') }}" method="GET">
+              <div class="row p-t-0">
+                  <div class="col-md-4">
+                      <div class="form-group">
+                          <label class="control-label">Trạng thái đơn hàng:</label>
+                          <select class="selectpicker form-control" name="status_id" data-style="form-control btn-secondary">
+                              <option value="" {{ ($status_id == '') ? 'selected' : '' }}> -- Tất cả -- </option>
+                              
+                                  <option value="1" {{ ($status_id == 1) ? 'selected' : '' }}> Đang chờ <span></span></option>
 
-                                                                      <option value="4" {{ ($status_id == 4) ? 'selected' : '' }}> Đã giao <span></span></option>
+                                  <option value="4" {{ ($status_id == 4) ? 'selected' : '' }}> Đã giao <span></span></option>
 
-                                                                      <option value="5" {{ ($status_id == 5) ? 'selected' : '' }}> Đã hủy <span></span></option>
-                                                                  
-                                                              </select>
-                                                          </li>
-                                                          <!-- end of by status dropdown -->
-                                                          <li>
-                                                              <div style="margin:10px 0px;">
-                                                                  <input type="text" name="key_search" id="key_search" class="form-control" value="{{ $key_search }}" placeholder="Mã đơn hàng...">
-                                                              </div>
-                                                          </li>
-                                                          <button type="submit" class="btn btn-info m-r-5"><i class="ti-search"></i> Tìm kiếm</button>
-                                                        </form>
-                                                        </ul>
-                                                        <div class="nav-item nav-grid">
-                                                                <a href="{{ route('add.order') }}" title="Tạo đơn hàng mới" class="btn btn-sm btn-primary">
-                                                                    <i class="icofont icofont-plus"></i> Tạo đơn hàng mới
-                                                                </a>
-                                                        </div>
-                                                        <!-- end of by priority dropdown -->
+                                  <option value="5" {{ ($status_id == 5) ? 'selected' : '' }}> Đã hủy <span></span></option>
+                              
+                          </select>
+                      </div>
+                  </div>
 
-                                                </nav>
+                  <div class="col-md-4">
+                      <div class="form-group">
+                          <label class="control-label">Mã đơn hàng</label>
+                          <input type="text" name="key_search" id="key_search" class="form-control" value="{{ $key_search }}" placeholder="Mã đơn hàng...">
+                      </div>
+                  </div>
+                  <div class="col-md-4 d-flex align-items-center">
+                      <button type="submit" class="btn btn-info m-r-5"><i class="ti-search"></i> Tìm kiếm</button>
+                  </div>
+              </div>
+          </form>
         </div>
     </div>
     <div class="row">
