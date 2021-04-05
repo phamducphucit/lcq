@@ -42,10 +42,19 @@
                   </div>
 
                   <div class="col-md-4">
-                      <div class="form-group">
-                          <label class="control-label">Mã đơn hàng</label>
-                          <input type="text" name="key_search" id="key_search" class="form-control" value="{{ $key_search }}" placeholder="Mã đơn hàng...">
-
+                      <div class="form-group row">
+                        <div class="col-6">
+                          <div class="form-group ">
+                            <label class="control-label">Mã đơn hàng</label>
+                            <input type="text" name="key_search" id="key_search" class="form-control" value="{{ $key_search }}" placeholder="Mã đơn hàng...">
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="form-group ">
+                            <label class="control-label">SDT</label>
+                            <input type="text" name="key_search" id="key_search" class="form-control" value="" placeholder="Mã đơn hàng...">
+                          </div>
+                        </div>
                       </div>
                   </div>
                   <div class="col-md-4 d-flex align-items-center">
