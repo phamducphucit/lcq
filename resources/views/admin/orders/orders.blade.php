@@ -109,11 +109,21 @@
                                             @endif
                                             
                                         </li>
+                                        <li>
+                                            @if($order->person_pay_shipping_to_station == 1)         
+                                                  <span class="text-semibold"><b><i>Khách trả cước ra bến xe</i></b></span>    
+                                            @else
+                                                  <span class="text-semibold"><b><i>Bao cước ra bến xe</i></b></span>  
+                                            @endif
+                                        </li>
                                         @if($order->note)
                                             <li><span style="color: #fe9365;"><i>{{$order->note}}</i></span></li>
                                         @endif
                                         @if($order->money_ship)
-                                            <li><span style="color: #fe9365;">Phí ship ra bến xe: <i>{{ number_format($order->money_ship) }} Vnđ</i></span></li>
+                                            <li><span style="color: #fe9365;">Cước ship: <i>{{ number_format($order->money_ship) }} Vnđ</i></span></li>
+                                        @endif
+                                        @if($order->money_ship)
+                                            <li><span style="color: #fe9365;">Cước ra bến xe: <i>{{ number_format($order->money_ship) }} Vnđ</i></span></li>
                                         @endif
                                     </ul>
                                 </div>
