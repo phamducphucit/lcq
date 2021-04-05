@@ -205,12 +205,12 @@
                     <input style="width: 50%" type="text" name="cod" class="form-control" id="cod" placeholder="Nhập tiền thu COD">
                 </div>
                 <div class="input-group mb-3">
-                    <label>Phí ship ra bến xe: </label>
-                    <input type="text" name="money_ship" class="form-control" id="money_ship" placeholder="Nhập tiền thu COD">
+                    <label style="width: 50%">Phí ship ra bến xe: </label>
+                    <input style="width: 50%" type="text" name="money_ship" class="form-control" id="money_ship" placeholder="Nhập tiền thu COD">
                 </div>
                 
                 <div class="input-group mb-3">
-                    <label>Trạng thái: </label>
+                    <label style="width: 50%">Trạng thái: </label>
                     <select class="form-control" id="statusselect">
                         <option value="1"> Đang chờ </option>
                         <option value="4"> Đã giao </option>
