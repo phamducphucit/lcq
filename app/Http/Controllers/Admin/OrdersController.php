@@ -33,7 +33,7 @@ class OrdersController extends Controller
             $list_orders = $list_orders->where('status', $status_id);
         }
         if(!empty($key_search)){
-            $list_orders = $list_orders->where('id', '=', '%'.$key_search.'%');
+            $list_orders = $list_orders->where('id', '=', $key_search);
         }
 
         $list_orders = $list_orders->get();
