@@ -17,16 +17,29 @@ class OrdersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        
+        $status_id = $request->input('status_id');
+        $key_search = $request->input('key_search');
+
         if(auth()->user()->isAdmin()){
-            $list_orders = Orders::orderBy('id', 'DESC')->get();
+            $list_orders = Orders::orderBy('id', 'DESC');
         }else{
-            $list_orders = Orders::where("user_id", "=", auth()->user()->id)->orderBy('id', 'DESC')->get();
+            $list_orders = Orders::where("user_id", "=", auth()->user()->id)->orderBy('id', 'DESC');
         }
-        return view('admin.orders.orders', compact('list_orders'));
+
+        if(!empty($status_id)){
+            $list_orders = $list_orders->where('status', $status_id);
+        }
+        if(!empty($key_search)){
+            $list_orders = $list_orders->where('id', '=', '%'.$key_search.'%');
+        }
+
+        $list_orders = $list_orders->get();
+
+
+        return view('admin.orders.orders', compact('list_orders', 'status_id', 'key_search'));
     }
 
     /**

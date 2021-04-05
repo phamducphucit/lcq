@@ -30,22 +30,27 @@
                                                         </li>
                                                         
                                                         <!-- end of by date dropdown -->
-                                                        <li class="nav-item dropdown">
-                                                            <a class="nav-link dropdown-toggle" href="#!" id="bystatus" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icofont icofont-chart-histogram-alt"></i> Trạng thái</a>
-                                                            <div class="dropdown-menu" aria-labelledby="bystatus">
-                                                                <a class="dropdown-item" href="#!">Tất cả</a>
-                                                                <div class="dropdown-divider"></div>
-                                                                <a class="dropdown-item" href="#!">Đang chờ</a>
-                                                                <a class="dropdown-item" href="#!">Đã giao</a>
-                                                                <a class="dropdown-item" href="#!">Đã hủy</a>
-                                                            </div>
-                                                        </li>
-                                                        <!-- end of by status dropdown -->
-                                                        <li>
-                                                            <div style="margin:10px 0px;">
-                                                                <input type="text" name="" class="form-control" placeholder="Mã đơn hàng...">
-                                                            </div>
-                                                        </li>
+                                                        <form action="{{ route('list.orders') }}" method="GET">
+                                                          <li class="nav-item dropdown">
+                                                              <select class="selectpicker form-control" name="status_id" data-style="form-control btn-secondary">
+                                                                  <option value="" {{ ($status_id == '') ? 'selected' : '' }}> -- Trạng thái đơn hàng -- </option>
+                                                                  
+                                                                      <option value="1" {{ ($status_id == 1) ? 'selected' : '' }}> Đang chờ <span></span></option>
+
+                                                                      <option value="4" {{ ($status_id == 4) ? 'selected' : '' }}> Đã giao <span></span></option>
+
+                                                                      <option value="5" {{ ($status_id == 5) ? 'selected' : '' }}> Đã hủy <span></span></option>
+                                                                  
+                                                              </select>
+                                                          </li>
+                                                          <!-- end of by status dropdown -->
+                                                          <li>
+                                                              <div style="margin:10px 0px;">
+                                                                  <input type="text" name="key_search" id="key_search" class="form-control" value="{{ $key_search }}" placeholder="Mã đơn hàng...">
+                                                              </div>
+                                                          </li>
+                                                          <button type="submit" class="btn btn-info m-r-5"><i class="ti-search"></i> Tìm kiếm</button>
+                                                        </form>
                                                         </ul>
                                                         <div class="nav-item nav-grid">
                                                                 <a href="{{ route('add.order') }}" title="Tạo đơn hàng mới" class="btn btn-sm btn-primary">
