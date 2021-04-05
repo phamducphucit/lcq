@@ -206,7 +206,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <label style="width: 50%">Phí ship ra bến xe: </label>
-                    <input style="width: 50%" type="text" name="money_ship" class="form-control" id="money_ship" placeholder="Nhập tiền thu COD"><small> Vnđ </small>
+                    <input style="width: 40%" type="text" name="money_ship" class="form-control" id="money_ship" placeholder="Nhập tiền thu COD"> Vnđ
                 </div>
                 
                 <div class="input-group mb-3">
