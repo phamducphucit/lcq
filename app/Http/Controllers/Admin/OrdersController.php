@@ -22,7 +22,8 @@ class OrdersController extends Controller
         //
         $status_id = $request->input('status_id');
         $key_search = $request->input('key_search');
-
+        $phone_search = $request->input('phone_search');
+        
         if(auth()->user()->isAdmin()){
             $list_orders = Orders::orderBy('id', 'DESC');
         }else{
@@ -35,11 +36,14 @@ class OrdersController extends Controller
         if(!empty($key_search)){
             $list_orders = $list_orders->where('id', '=', $key_search);
         }
+        if(!empty($phone_search)){
+            $list_orders = $list_orders->where('phone_receiver', 'like', '%'.$phone_search.'%');
+        }
 
         $list_orders = $list_orders->get();
 
 
-        return view('admin.orders.orders', compact('list_orders', 'status_id', 'key_search'));
+        return view('admin.orders.orders', compact('list_orders', 'status_id', 'key_search', 'phone_search'));
     }
 
     /**

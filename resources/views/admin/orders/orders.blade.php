@@ -51,8 +51,8 @@
                         </div>
                         <div class="col-6">
                           <div class="form-group ">
-                            <label class="control-label">SDT</label>
-                            <input type="text" name="key_search" id="key_search" class="form-control" value="" placeholder="Mã đơn hàng...">
+                            <label class="control-label">Số điện thoại</label>
+                            <input type="text" name="phone_search" id="phone_search" class="form-control" value="{{ $phone_search }}" placeholder="Số điện thoại...">
                           </div>
                         </div>
                       </div>
