@@ -70,7 +70,7 @@ class OrdersController extends Controller
             }else{
                 $order->person_pay_shipping = 1;
             }
-            
+
             if($request->input('person_pay_shipping_to_station') == 2){
                 $order->person_pay_shipping_to_station = 2;
             }else{
@@ -140,6 +140,7 @@ class OrdersController extends Controller
         $order = Orders::find($id);
         $order->cod = $request->cod;
         $order->money_ship = $request->money_ship;
+        $order->fee_to_station = $request->fee_to_station;
         if($request->status){
             $order->status = $request->status;
         }
