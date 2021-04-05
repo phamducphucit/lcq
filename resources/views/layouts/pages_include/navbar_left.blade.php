@@ -69,6 +69,16 @@
             
         </ul>
         @endif
+
+        <div class="pcoded-navigatio-lavel" menu-title-theme="theme5">Tài khoản</div>
+        <ul class="pcoded-item pcoded-left-item" item-border="true" item-border-style="none" subitem-border="true">
+            <li class="">
+                <a href="{{ route('logout') }}" >
+                    <span class="pcoded-micon"><i class="feather icon-power"></i></span>
+                    <span class="pcoded-mtext">Đăng xuất</span>
+                </a>
+            </li>
+        </ul>
     </div>
 </nav>
 @endif
