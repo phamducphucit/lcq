@@ -358,6 +358,7 @@
                 $("#note").html(data.note);
                 $("#products").html(data.products);
                 $("#nguoitracuoc").html(data.nguoitracuoc);
+                $("#nguoitracuocrabenxe").html(data.nguoitracuocrabenxe);
                 $("#statusselect").val(data.status);
                 $('#order_id').val(id_order);
                 $('#cod').val(data.cod);
