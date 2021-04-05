@@ -110,6 +110,7 @@
                                             
                                         </li>
                                         <li><span style="color: #fe9365;"><i>{{$order->note}}</i></span></li>
+                                        <li><span style="color: #fe9365;"><i>{{$order->money_ship}}</i></span></li>
                                     </ul>
                                 </div>
                             </div>
