@@ -122,8 +122,8 @@
                                         @if($order->money_ship)
                                             <li><span style="color: #fe9365;">Cước ship: <i>{{ number_format($order->money_ship) }} Vnđ</i></span></li>
                                         @endif
-                                        @if($order->money_ship)
-                                            <li><span style="color: #fe9365;">Cước ra bến xe: <i>{{ number_format($order->money_ship) }} Vnđ</i></span></li>
+                                        @if($order->fee_to_station)
+                                            <li><span style="color: #fe9365;">Cước ra bến xe: <i>{{ number_format($order->fee_to_station) }} Vnđ</i></span></li>
                                         @endif
                                     </ul>
                                 </div>
