@@ -54,7 +54,7 @@ class Orders extends Model
         {
             return "Khách trả cước ra bến xe";
         }else{
-            return "Bao cước ra bến xep";
+            return "Bao cước ra bến xe";
         }
     }
 }

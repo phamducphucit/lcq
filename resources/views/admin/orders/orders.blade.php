@@ -363,6 +363,7 @@
                 $('#order_id').val(id_order);
                 $('#cod').val(data.cod);
                 $('#money_ship').val(data.money_ship);
+                $('#fee_to_station').val(data.fee_to_station);
                 if(data.status == 4 || data.status == 5){
                     document.getElementById('statusselect').disabled = true;
                 } else {
