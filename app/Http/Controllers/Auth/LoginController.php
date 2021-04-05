@@ -49,9 +49,11 @@ class LoginController extends Controller
             'user_name' => 'required',
             'password' => 'required',
         ]);
-  
+            
+        $remember_me = $request->has('remember_me') ? true : false;
+
         $fieldType = filter_var($request->user_name, FILTER_VALIDATE_EMAIL) ? 'email' : 'user_name';
-        if(auth()->attempt(array($fieldType => $input['user_name'], 'password' => $input['password'])))
+        if(auth()->attempt(array($fieldType => $input['user_name'], 'password' => $input['password']),$remember_me))
         {
             return redirect()->route('home');
         }else{
