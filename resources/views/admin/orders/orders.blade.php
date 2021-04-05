@@ -109,8 +109,12 @@
                                             @endif
                                             
                                         </li>
-                                        <li><span style="color: #fe9365;"><i>{{$order->note}}</i></span></li>
-                                        <li><span style="color: #fe9365;"><i>{{$order->money_ship}}</i></span></li>
+                                        @if($order->note)
+                                            <li><span style="color: #fe9365;"><i>{{$order->note}}</i></span></li>
+                                        @endif
+                                        @if($order->money_ship)
+                                            <li><span style="color: #fe9365;">Phí ship ra bến xe: <i>{{ number_format($order->money_ship) }} Vnđ</i></span></li>
+                                        @endif
                                     </ul>
                                 </div>
                             </div>
