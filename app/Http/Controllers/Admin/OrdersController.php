@@ -70,6 +70,13 @@ class OrdersController extends Controller
             }else{
                 $order->person_pay_shipping = 1;
             }
+            
+            if($request->input('person_pay_shipping_to_station') == 2){
+                $order->person_pay_shipping_to_station = 2;
+            }else{
+                $order->person_pay_shipping_to_station = 1;
+            }
+
             $order->note = $request->input('note');
             
             $order->save();

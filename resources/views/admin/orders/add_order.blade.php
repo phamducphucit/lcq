@@ -105,6 +105,15 @@
                                                             <span>Bao cước ship</span>
                                                         </label>
                                                     </div>
+                                                    <div class="checkbox-zoom zoom-primary">
+                                                        <label>
+                                                            <input type="checkbox" name="person_pay_shipping_to_station" value="2">
+                                                            <span class="cr">
+                                                                <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
+                                                            </span>
+                                                            <span>Bao cước ra bến xe</span>
+                                                        </label>
+                                                    </div>
 
                                                     <div class="row">
                                                         <div class="col-sm-12">
@@ -115,7 +124,6 @@
                                                         </div>
                                                     </div>
 
-                                                    
 
                                                     <div class="row">
                                                         <div class="col-sm-12">
