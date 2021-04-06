@@ -260,6 +260,7 @@
             var order_id = $("#order_id").val();
             var cod = $("#cod").val();
             var money_ship = $("#money_ship").val();
+            var fee_to_station = $("#fee_to_station").val();
             var status = document.getElementById("statusselect").value;
             $.ajaxSetup({
               headers: {
@@ -274,6 +275,7 @@
                 id: order_id,
                 cod: cod,
                 money_ship: money_ship,
+                fee_to_station: fee_to_station,
                 status: status,
               },
               dataType: 'json',
