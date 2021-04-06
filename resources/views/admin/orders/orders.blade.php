@@ -164,7 +164,7 @@
     </div>
 @endsection
 
-<div class="modal fade show" id="myModalCustomer" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade show" id="myModalCustomer" tabindex="-1" role="dialog" aria-hidden="true" style="display: none">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -186,7 +186,7 @@
     </div>
 </div>
 
-<div class="modal fade show" id="myModalOrder"  tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade show" id="myModalOrder"  tabindex="-1" role="dialog" aria-hidden="true" style="display: none">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">

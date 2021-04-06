@@ -259,4 +259,10 @@ class ProductController extends Controller
         return redirect()->route('list.imports');
     }
 
+    public function showImportDetail ($id)
+    {
+        //
+        return Imports::find($id);
+    }
+
 }

@@ -85,6 +85,7 @@ Route::group(['middleware'=>'auth'], function (){
 		Route::get('/list-imports', [ProductController::class, 'listImports'])->name('list.imports');
 		Route::get('/add-imports', [ProductController::class, 'createImports'])->name('add.import');
 		Route::post('/add-imports', [ProductController::class, 'storeImports'])->name('add.import.post');
+		Route::get('/show-import-detail/{id}', [ProductController::class, 'showImportDetail'])->name('show.import.detail');
 	});
 
 	// Customer

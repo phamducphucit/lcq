@@ -43,17 +43,37 @@
                 <div class="card-header">
                     <h5>Nhập hàng vào kho</h5>
                 </div>
-                <div class="">
+                <div class="" style="padding:8px;">
                     <div class="row">
                         <div class="col-md-12">
                                 <section>
-                                    <form method="post" action="{{ route('add.import.post') }}" >
+                                    <form method="post" action="{{ route('add.import.post') }}" enctype="multipart/form-data">
                                         @csrf
                                         
                                         <!-- Delivery Details fieldset start -->
                                         <fieldset class="bank-detail p-t-5">
                                             <div class="row">
                                                 <div class="col-md-6">
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group">
+                                                                <label class="form-label">Mã bill <span style="color: red">*</span></label>
+                                                                <input id="name" class="form-control" type="text" name="name" value="" placeholder="Vui lòng nhập tên hoặc mã bill">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <label>Hình bill:</label>
+                                                            <div class="input-group">
+                                                                <input type="file"  name="image" class="form-control pname {{$errors->has('image') ? 'is-invalid' : '' }}" placeholder="Hình">
+                                                                @if($errors->has('image'))
+                                                                  <span class="messages" style="color: red;">{{$errors->first('image')}}</span>
+                                                                @endif 
+                                                                <span class="input-group-addon btn btn-primary">Chọn hình</span>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <label>Sản phẩm cần nhập kho:</label>
                                                     <table id="e-product-list" class="table table-responsive table-striped dt-responsive nowrap dataTable no-footer dtr-inline cart-page" role="grid" style="width: 100%;">
                                                             <tr id="row_1" style="border: 1px solid #ccc">
                                                                 <td style="width: 715px;padding-bottom:20px;">
@@ -72,7 +92,15 @@
                                                                 
                                                             </tr>
                                                     </table>
-                                                    <input class="btn btn-grd-info " type="button" onclick="addRow()" value="Thêm">
+                                                    
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-6">
+                                                            <input class="btn btn-sm btn-grd-info " type="button" onclick="addRow()" value="+ Thêm">
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <button type="submit" class="btn btn-primary" style="float: right;">Nhập kho</button>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </fieldset>
