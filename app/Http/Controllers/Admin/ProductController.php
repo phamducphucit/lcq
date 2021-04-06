@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\ProductModel;
 use App\Models\CategoryModel;
+use App\Models\Imports;
+use App\Models\ImportDetail;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -179,4 +182,81 @@ class ProductController extends Controller
 
         return redirect()->route('list.products');
     }
+
+    public function listImports(Request $request)
+    {
+        //
+        $key_search = $request->input('key_search');
+        
+        $list_imports = Imports::orderBy('id', 'DESC');
+
+        if(!empty($key_search)){
+            $list_imports = $list_imports->where('name', 'like', '%'.$key_search.'%');
+        }
+
+        $list_imports = $list_imports->get();
+
+
+        return view('admin.products.list_imports', compact('list_imports','key_search'));
+    }
+
+    public function createImports()
+    {
+        $list_imports = Imports::all();
+        return view('admin.products.add_import', compact('list_imports'));
+    }
+
+    // Import product
+    public function storeImports(Request $request)
+    {
+        // echo "<pre/>";print_r($request->all());die;
+        DB::transaction(function() use($request) {
+
+            $import = new Imports;
+            $import->user_id = auth()->user()->id;
+            $import->name = $request->input('name');
+            $import->order_date = now();
+            
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $image_name = 'img_bill/'.time()."-".$image->getClientOriginalName();
+                $destinationPath = public_path('/img_bill');
+                $request->file('image')->move($destinationPath, $image_name);
+                $import->image = $image_name;
+            }else{
+                $image_name = 'img_bill/no-image.png';
+                $import->image = $image_name;
+            }
+            
+            $import->save();
+
+            $importProducts = [];
+            $quantity = $request->input('quantity');
+
+            foreach ($request->input('product_id') as $key => $productId) {
+                //Cập nhật lại số lượng hàng
+                $prod = ProductModel::find($productId);
+                $name_product = $prod->name;
+                $quantity_before_entering = $prod->quantity;
+                $quantity_inventory = $prod->quantity;
+                $total_quantity = $quantity_inventory + $quantity[$key];
+                $prod->quantity = $total_quantity;
+                $quantity_after_entering = $total_quantity;
+                $prod->save();
+
+                $importProducts[] = [
+                    'imports_id' => $import->id,
+                    'product_id' => $productId,
+                    'name_product' => $name_product,
+                    'quantity_before_entering' => $quantity_before_entering,
+                    'quantity' => $quantity[$key],
+                    'quantity_after_entering' => $quantity_after_entering,
+                ];
+            }
+            ImportDetail::insert($importProducts);
+
+        });
+        return redirect()->route('list.imports');
+    }
+
 }

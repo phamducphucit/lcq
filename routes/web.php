@@ -82,6 +82,9 @@ Route::group(['middleware'=>'auth'], function (){
 		Route::post('/edit-product/{id}', [ProductController::class, 'update'])->name('update.product.post');
 		Route::get('/delete-product/{id}', [ProductController::class, 'destroy'])->name('delete.product');
 		Route::get('/show-product/{id}', [ProductController::class, 'show'])->name('show.product');
+		Route::get('/list-imports', [ProductController::class, 'listImports'])->name('list.imports');
+		Route::get('/add-imports', [ProductController::class, 'createImports'])->name('add.import');
+		Route::post('/add-imports', [ProductController::class, 'storeImports'])->name('add.import.post');
 	});
 
 	// Customer

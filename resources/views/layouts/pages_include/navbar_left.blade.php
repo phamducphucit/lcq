@@ -31,6 +31,12 @@
                 </a>
             </li>
             @endif
+            <li class=" ">
+                <a href="{{ route('list.imports') }}">
+                    <span class="pcoded-micon"><i class="feather icon-feather"></i></span>
+                    <span class="pcoded-mtext">Nhập kho hàng</span>
+                </a>
+            </li>
             <li class="">
                 <a href="{{ route('list.customers') }}">
                     <span class="pcoded-micon"><i class="icon-people"></i></span>
