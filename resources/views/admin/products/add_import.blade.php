@@ -12,7 +12,7 @@
             <div class="col-lg-8">
                 <div class="page-header-title">
                     <div class="d-inline">
-                        <h4>Tạo đơn hàng</h4>
+                        <h4>Nhập hàng vào kho</h4>
                         <!-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> -->
                     </div>
                 </div>
@@ -23,9 +23,9 @@
                         <li class="breadcrumb-item">
                             <a href="{{ route('home') }}"> <i class="feather icon-home"></i> </a>
                         </li>
-                        <li class="breadcrumb-item"><a href="{{ route('list.orders')}}">Đơn hàng</a>
+                        <li class="breadcrumb-item"><a href="{{ route('list.imports')}}">Danh sách nhập Kho</a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">Tạo đơn hàng mới</a>
+                        <li class="breadcrumb-item"><a href="#!">Nhập hàng vào kho</a>
                         </li>
                     </ul>
                 </div>
@@ -41,104 +41,15 @@
             <!-- Shopping cart start -->
             <div class="card">
                 <div class="card-header">
-                    <h5>Tạo đơn hàng mới</h5>
+                    <h5>Nhập hàng vào kho</h5>
                 </div>
                 <div class="">
                     <div class="row">
                         <div class="col-md-12">
-                            <div id="wizard">
                                 <section>
-                                    <form class="wizard-form" method="post" action="{{ route('add.order.post') }}" id="example-advanced-form">
+                                    <form method="post" action="{{ route('add.import.post') }}" id="example-advanced-form">
                                         @csrf
-                                        <!-- Shopping cart field et start -->
-                                        <h3> Thông tin khách hàng </h3>
-                                        <fieldset>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-
-                                                            <!-- <label class="form-label">Khách hàng <span style="color: red">*</span></label> -->
-                                                            <div class="input-group">
-                                                                <select class="js-example-basic-single col-sm-12" name="customer_id" id="customer_id" onchange="getCustomer()" required="">
-                                                                    <option value="">---- Chọn khách hàng ----</option>
-                                                                    @foreach($list_cus as $customer)
-                                                                        <option value="{{ $customer->id }}">{{ $customer->name }} - {{ $customer->phone }}</option>
-                                                                    @endforeach
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            <div class="form-group">
-                                                                <label class="form-label">Tên người nhận hàng <span style="color: red">*</span></label>
-                                                                <input id="name_receiver" class="form-control" type="text" name="name_receiver" value="" required="">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            <div class="form-group">
-                                                                <label class="control-label">Điện thoại người nhận hàng <span style="color: red">*</span></label>
-                                                                <input id="phone_receiver" class="form-control" type="text" name="phone_receiver" value="" required="">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            <div class="form-group">
-                                                                <label class="control-label">Địa chỉ người nhận hàng <span style="color: red">*</span></label>
-                                                                <input id="address_receiver" class="form-control" type="text" name="address_receiver" value="" required="">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="checkbox-zoom zoom-primary">
-                                                        <label>
-                                                            <input type="checkbox" name="person_pay_shipping" value="2">
-                                                            <span class="cr">
-                                                                <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
-                                                            </span>
-                                                            <span>Bao cước ship</span>
-                                                        </label>
-                                                    </div>
-                                                    <div class="checkbox-zoom zoom-primary">
-                                                        <label>
-                                                            <input type="checkbox" name="person_pay_shipping_to_station" value="2">
-                                                            <span class="cr">
-                                                                <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
-                                                            </span>
-                                                            <span>Bao cước ra bến xe</span>
-                                                        </label>
-                                                    </div>
-
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            <div class="form-group">
-                                                                <label class="control-label">Thu tiền COD</label>
-                                                                <input id="cod" class="form-control" type="text" name="cod" value="" placeholder="VNĐ">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            <div class="form-group">
-                                                                <label class="control-label">Ghi chú</label>
-                                                                <textarea class="form-control" id="note" name="note" rows="2" cols="100">
-                                                                </textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                        <!-- Shopping cart fieldset end -->
+                                        
                                         <!-- Delivery Details fieldset start -->
                                         <h3> Thông tin sản phẩm </h3>
                                         <fieldset class="bank-detail p-t-5">
@@ -170,7 +81,6 @@
                                         
                                     </form>
                                 </section>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -222,20 +132,6 @@
         });
     }
 
-    function getCustomer() {
-            var id = document.getElementById("customer_id").value;
-            axios.get('/customer/show-customer/' + id ).then(res=>{
-                if(res.status==200){
-                    console.log(res.data);
-
-                    $('#name_receiver').val(res.data.name);
-                    $('#address_receiver').val(res.data.adress + ", " + res.data.ward.name + ", " + res.data.district.name + ", " + res.data.province.name);
-                    $('#phone_receiver').val(res.data.phone);
-                }
-            }).catch(err=>{
-                console.log(err)
-            });
-    }
 
     function addRow()
     {

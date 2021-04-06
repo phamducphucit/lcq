@@ -202,8 +202,8 @@ class ProductController extends Controller
 
     public function createImports()
     {
-        $list_imports = Imports::all();
-        return view('admin.products.add_import', compact('list_imports'));
+        $list_products = ProductModel::all();
+        return view('admin.products.add_import', compact('list_products'));
     }
 
     // Import product
