@@ -47,11 +47,10 @@
                     <div class="row">
                         <div class="col-md-12">
                                 <section>
-                                    <form method="post" action="{{ route('add.import.post') }}" id="example-advanced-form">
+                                    <form method="post" action="{{ route('add.import.post') }}" >
                                         @csrf
                                         
                                         <!-- Delivery Details fieldset start -->
-                                        <h3> Thông tin sản phẩm </h3>
                                         <fieldset class="bank-detail p-t-5">
                                             <div class="row">
                                                 <div class="col-md-6">
