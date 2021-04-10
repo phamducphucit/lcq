@@ -94,9 +94,7 @@
                             <!-- <span class="label label-default f-right"> 28 January, 2015 </span> -->
                             <div class="dropdown-secondary dropdown f-right">
                                 <span class="f-left m-r-5 text-inverse">
-                                    <a href="#!" onclick="showCustomer({{$order->customer_id}})">
-                                        <label class="label label-inverse">{{$order->name_receiver}}</label>
-                                    </a>
+                                  <label class="label label-inverse">{{$order->orderername}}</label>
                                 </span>
                             </div>
                         </div>
@@ -104,9 +102,11 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <ul class="list list-unstyled">
+                                      <a href="#!" onclick="showCustomer({{$order->customer_id}})">
                                         <li><b><u>Người nhận</u></b>: {{$order->name_receiver}}</li>
                                         <li><b><u>Điện thoại</u></b>: <span class="text-semibold">{{$order->phone_receiver}}</span></li>
                                         <li><b><u>Địa chỉ</u></b>: <span class="text-semibold">{{$order->address_receiver}}</span></li>
+                                      </a>
                                     </ul>
                                 </div>
                                 <div class="col-sm-6">

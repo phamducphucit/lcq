@@ -12,7 +12,7 @@ class Orders extends Model
     //
     protected $table = 'orders';
 
-    protected  $appends = ['customer','products', 'nguoitracuoc', 'nguoitracuocrabenxe'];
+    protected  $appends = ['customer','products', 'nguoitracuoc', 'nguoitracuocrabenxe', 'orderername'];
 
     public function getCustomerAttribute()
     {
@@ -21,6 +21,16 @@ class Orders extends Model
         	return CustomerModel::where("id", "=", $this->attributes['customer_id'])->first();
         }
         return null;
+    }
+
+    public function getOrderernameAttribute()
+    {
+        if($this->attributes['info_orderer'] != null)
+        {
+            return $this->attributes['info_orderer'];
+        }else{
+            return $this->attributes['name_receiver']
+        }
     }
 
     public function getProductsAttribute()
