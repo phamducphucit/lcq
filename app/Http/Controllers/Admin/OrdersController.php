@@ -81,6 +81,8 @@ class OrdersController extends Controller
             $order->name_receiver = $request->input('name_receiver');
             $order->address_receiver = $request->input('address_receiver');
             $order->phone_receiver = $request->input('phone_receiver');
+            $order->info_orderer = $request->input('info_orderer');
+            
             $order->order_date = now();
             if($request->input('person_pay_shipping') == 2){
                 $order->person_pay_shipping = 2;
