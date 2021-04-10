@@ -29,7 +29,7 @@ class Orders extends Model
         {
             return $this->attributes['info_orderer'];
         }else{
-            return $this->attributes['name_receiver']
+            return $this->attributes['name_receiver'];
         }
     }
 
