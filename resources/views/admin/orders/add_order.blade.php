@@ -96,6 +96,15 @@
                                                         </div>
                                                     </div>
 
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group">
+                                                                <label class="control-label">Thông tin người đặt hàng <span style="color: red">*</span></label>
+                                                                <input id="info_orderer" class="form-control" type="text" name="info_orderer" value="" placeholder="Tên Fb, Zalo, Số điện thoại.v.v..">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                     <div class="checkbox-zoom zoom-primary">
                                                         <label>
                                                             <input type="checkbox" name="person_pay_shipping" value="2">
