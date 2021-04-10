@@ -197,7 +197,7 @@
         <form action="" method="post" id="orderdata">
             <div class="modal-body">
                <input type="hidden" id="order_id" name="order_id" value="">
-               <u>Tên khách hàng</u> : <b><span id="name_customer"></span></b> <br/>
+               <u>Người đặt hàng</u> : <b><span id="name_customer"></span></b> <br/>
                <u>Tên người nhận</u> : <b><span id="name_receiver"></span></b> <br/>
                <u>Số điện thoại</u> : <b><span id="phone_receiver"></span></b> <br/>
                <u>Địa chỉ</u> : <b><span id="address_receiver"></span></b> <br/>
@@ -363,7 +363,7 @@
             type: 'GET',
             success: function (data) {
                 console.log(data);
-                $("#name_customer").html(data.customer.name);
+                $("#name_customer").html(data.orderername);
                 $("#name_receiver").html(data.name_receiver);
                 $("#phone_receiver").html(data.phone_receiver);
                 $("#address_receiver").html(data.address_receiver);
