@@ -127,6 +127,9 @@
                                         @if($order->fee_to_station)
                                             <li><span style="color: #fe9365;">Cước ra bến xe: <i>{{ number_format($order->fee_to_station) }} Vnđ</i></span></li>
                                         @endif
+                                        @if($order->cod)
+                                            <li><span style="color: #fe9365;">Thu COD: <i>{{ number_format($order->cod) }} Vnđ</i></span></li>
+                                        @endif
                                     </ul>
                                 </div>
                             </div>
