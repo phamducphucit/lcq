@@ -85,7 +85,7 @@
                                                                     </select>
                                                                     <br/>
                                                                     <lable style="padding: 15px 15px 15px 0px;float: left">Số lượng</lable>
-                                                                    <input type="number" class="form-control" style="width: 30%;float: left;margin-top: 10px;" value="1" name="quantity[]" required="">
+                                                                    <input type="number" class="form-control" style="width: 30%;float: left;margin-top: 10px;" value="1" name="quantity[]" step="0.5" required="">
                                                                     <span id="unit1" style="padding: 15px 15px 5px 5px;float: left"></span>
                                                                     <!-- <a href="#!" class="text-muted" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" style="float: left;padding: 15px 15px 5px 0px;"><i class="icofont icofont-delete-alt"></i></a> -->
                                                                 </td>
