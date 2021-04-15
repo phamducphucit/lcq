@@ -204,7 +204,7 @@
                <u>Tên người nhận</u> : <b><span id="name_receiver"></span></b> <br/>
                <u>Số điện thoại</u> : <b><span id="phone_receiver"></span></b> <br/>
                <u>Địa chỉ</u> : <b><span id="address_receiver"></span></b> <br/>
-               <u>Gửi xe</u> : <b><span id="transport"></span></b> <br/>
+               <u>Gửi xe</u> : <b><span id="transport1"></span></b> <br/>
                <u>Ghi chú</u> : <b><span id="note"></span></b> <br/>
                <u>Thông tin sản phẩm</u> : <br/>
                 
@@ -370,7 +370,7 @@
                 $("#name_receiver").html(data.name_receiver);
                 $("#phone_receiver").html(data.phone_receiver);
                 $("#address_receiver").html(data.address_receiver);
-                $("#transport").html(data.customer.transport);
+                $("#transport1").html(data.customer.transport);
                 $("#note").html(data.note);
                 $("#products").html(data.products);
                 $("#nguoitracuoc").html(data.nguoitracuoc);
