@@ -132,20 +132,16 @@
         axios.get('/product/show-product/' + id ).then(res=>{
             if(res.status==200){
                 console.log(res.data);
-                
-                switch (res.data.unit) {
-                  case 1:
+                if(res.data.unit == 1){
                     document.getElementById("unit1").innerHTML = "kg";
-                    break;
-                  case 2:
-                    document.getElementById("unit1").innerHTML = "hộp";
-                    break;
-                  case 3:
-                    document.getElementById("unit1").innerHTML = "túi";
-                    break;
-                  default:
-                    echo "Không đơn vị";
                 }
+                if(res.data.unit == 2){
+                    document.getElementById("unit1").innerHTML = "hộp";
+                }
+                if(res.data.unit == 3){
+                    document.getElementById("unit1").innerHTML = "túi";
+                }
+                
             }
         }).catch(err=>{
             console.log(err)
@@ -157,20 +153,16 @@
         axios.get('/product/show-product/' + id ).then(res=>{
             if(res.status==200){
                 console.log(res.data);
-
-                switch (res.data.unit) {
-                  case 1:
+                if(res.data.unit == 1){
                     document.getElementById("unit"+id_row).innerHTML = "kg";
-                    break;
-                  case 2:
-                    document.getElementById("unit"+id_row).innerHTML = "hộp";
-                    break;
-                  case 3:
-                    document.getElementById("unit"+id_row).innerHTML = "túi";
-                    break;
-                  default:
-                    echo "Không đơn vị";
                 }
+                if(res.data.unit == 2){
+                    document.getElementById("unit"+id_row).innerHTML = "hộp";
+                }
+                if(res.data.unit == 3){
+                    document.getElementById("unit"+id_row).innerHTML = "túi";
+                }
+                
             }
         }).catch(err=>{
             console.log(err)
