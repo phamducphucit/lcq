@@ -148,10 +148,19 @@
         axios.get('/product/show-product/' + id ).then(res=>{
             if(res.status==200){
                 console.log(res.data);
-                if(res.data.unit == 1){
-                    document.getElementById("unit"+id_row).innerHTML = "Kg";
-                }else{
-                    document.getElementById("unit"+id_row).innerHTML = "Hộp";
+
+                switch (res.data.unit) {
+                  case 1:
+                    document.getElementById("unit"+id_row).innerHTML = "kg";
+                    break;
+                  case 2:
+                    document.getElementById("unit"+id_row).innerHTML = "hộp";
+                    break;
+                  case 3:
+                    document.getElementById("unit"+id_row).innerHTML = "túi";
+                    break;
+                  default:
+                    echo "Không đơn vị";
                 }
             }
         }).catch(err=>{

@@ -107,6 +107,7 @@
 	                                <option value="">---- Chọn đơn vị ----</option>
 	                                <option value="1">Kg</option>
 	                                <option value="2">Hộp</option>
+	                                <option value="3">Túi</option>
                             	</select>
                             	@if($errors->has('unit'))
 		                          <span class="messages" style="color: red;">{{$errors->first('unit')}}</span>

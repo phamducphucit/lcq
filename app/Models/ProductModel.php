@@ -15,11 +15,20 @@ class ProductModel extends Model
 
     public function getDonviAttribute()
     {
-        if($this->attributes['unit'] == 1)
-        {
-        	return "kg";
-        }else{
-        	return "hộp";
+        $unit = $this->attributes['unit'];
+
+        switch ($unit) {
+          case 1:
+            return "kg";
+            break;
+          case 2:
+            return "hộp";
+            break;
+          case 3:
+            return "túi";
+            break;
+          default:
+            echo "Không đơn vị";
         }
     }
 }

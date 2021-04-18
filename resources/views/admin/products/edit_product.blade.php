@@ -106,7 +106,8 @@
 	                        	<label>Đơn vị :</label> <select class="form-control stock {{$errors->has('unit') ? 'is-invalid' : '' }}" name="unit" id="unit">
 	                                <option value="">---- Select Unit ----</option>
 	                                <option value="1" {{$product->unit == 1 ? 'selected' : '' }}>Kg</option>
-	                                <option value="2" {{$product->unit == 2 ? 'selected' : '' }}>Box</option>
+	                                <option value="2" {{$product->unit == 2 ? 'selected' : '' }}>Hộp</option>
+	                                <option value="2" {{$product->unit == 3 ? 'selected' : '' }}>Túi</option>
                             	</select>
                             	@if($errors->has('unit'))
 		                          <span class="messages" style="color: red;">{{$errors->first('unit')}}</span>
