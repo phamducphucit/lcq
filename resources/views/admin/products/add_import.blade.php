@@ -184,7 +184,7 @@
                             @endforeach
                         '</select>'+
                         '<lable style="padding: 15px 15px 15px 0px;float: left">Số lượng</lable>'+
-                        '<input type="number" class="form-control" style="width: 30%;float: left;margin-top: 10px;" value="1" name="quantity[]" required="">'+
+                        '<input type="number" class="form-control" style="width: 30%;float: left;margin-top: 10px;" value="1" name="quantity[]" required="" step="0.1">'+
                         '<span id="unit'+new_id+'" style="padding: 15px 15px 5px 5px;float: left"></span>'+
                         '<a href="javascript:deleteRow('+new_id+')" class="text-muted" data-toggle="tooltip" data-placement="top" title="Xóa" data-original-title="Xóa" style="float: left;padding: 15px;"><i class="icofont icofont-delete-alt"></i></a>'+
                     '</td>';
